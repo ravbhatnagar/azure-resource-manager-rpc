@@ -1,12 +1,12 @@
 # Resource Provider API v2.0
 
 ## Contents
-1. [Related Documents](https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) 
-2. [Common API Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-details-id) </br>
-    a. [Common API Request Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-req-details-id) </br>
-		i)   [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#proxy-req-header-mod-id) </br>
-	    	ii)  [Client Request Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-header-id) </br>
-		 iii) [Request Query Parameters] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-query-param-id) </br>
+    [Related Documents](https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) 
+    [Common API Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-details-id) </br>
+    - [Common API Request Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-req-details-id) </br>
+        * [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#proxy-req-header-mod-id) </br>
+        * [Client Request Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-header-id) </br>
+        *  [Request Query Parameters] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-query-param-id) </br>
 	    	iv) [Case Insensitivity for Requests] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#case-insensitivity-req-id) </br>
 	    	v) [Client Request Timeout] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-timeout-id) </br>
 	    	vi) [Request Throttling] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-throttle-id) </br>
