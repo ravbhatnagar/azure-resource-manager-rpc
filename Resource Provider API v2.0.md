@@ -1,12 +1,12 @@
 # Resource Provider API v2.0
 
 ## Contents
-    [Related Documents](https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) 
-    [Common API Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-details-id) </br>
-    - [Common API Request Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-req-details-id) </br>
-        * [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#proxy-req-header-mod-id) </br>
-        * [Client Request Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-header-id) </br>
-        *  [Request Query Parameters] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-query-param-id) </br>
+1. [Related Documents](https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) 
+2. [Common API Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-details-id) </br>
+    a. [Common API Request Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-req-details-id) </br>
+         i) [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#proxy-req-header-mod-id) </br>
+         ii) [Client Request Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-header-id) </br>
+         iii) [Request Query Parameters] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-query-param-id) </br>
 	    	iv) [Case Insensitivity for Requests] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#case-insensitivity-req-id) </br>
 	    	v) [Client Request Timeout] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-timeout-id) </br>
 	    	vi) [Request Throttling] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-throttle-id) </br>
@@ -16,6 +16,24 @@
 	    	iii) [Max Response Size] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#max-res-size-id) </br>
 	    	iv) [Transfer-Encoding] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#xfer-encoding-id) </br>
 	    	v) [Redirecting the Client] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#redirect-client-id) </br>
+3. [Subscription Lifecycle API Reference] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+    a. [Updating a subscription] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+	i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+	ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+	iii) [Subscription States] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+4. [Resource API Reference] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+    a. [Put Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+    b. [Patch Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+    c. [Delete Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+    d. [Get Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
 
 Enter file This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
 
