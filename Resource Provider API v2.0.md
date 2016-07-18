@@ -1153,37 +1153,22 @@ The behavior for ETags can be seen below:
 | PUT | Resource does not exist | Resource exists |
 | --- | --- | --- |
 | If-Match = "" / absent | 201 Created | 200 OK |
-| If-Match = "\*" | 412
-# 1
- Precondition Failed | 200 OK |
-| If-Match = "xyz" | 412
-# 1
- Precondition Failed | 200 OK / 412 Precondition Failed |
-| If-None-Match = "\*" | 201 Created | 412
-# 4
- Precondition Failed |
-
+| If-Match = "\*" | 412* Precondition Failed | 200 OK |
+| If-Match = "xyz" | 412** Precondition Failed | 200 OK / 412 Precondition Failed |
+| If-None-Match = "\*" | 201 Created | 412**** Precondition Failed |
 
 
 | PATCH | Resource does not exist | Resource exists |
 | --- | --- | --- |
 | If-Match = "" / absent | 404 Not Found | 200 OK |
-| If-Match = "\*" | 404
-# 2
- Not Found | 200 OK |
-| If-Match = "xyz" | 404
-# 2
- Not Found | 200 OK / 412 Precondition Failed |
+| If-Match = "\*" | 404** Not Found | 200 OK |
+| If-Match = "xyz" | 404** Not Found | 200 OK / 412 Precondition Failed |
 
 | DELETE | Resource does not exist | Resource exists |
 | --- | --- | --- |
 | If-Match = "" / absent | 204 No Content | 200 OK |
-| If-Match = "\*" | 204
-# 3
- No Content | 200 OK |
-| If-Match = "xyz" | 204
-# 3
- No Content | 200 OK / 412 Precondition Failed |
+| If-Match = "\*" | 204*** No Content | 200 OK |
+| If-Match = "xyz" | 204*** No Content | 200 OK / 412 Precondition Failed |
 
 ### Regional Endpoints
 
