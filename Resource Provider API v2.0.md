@@ -285,6 +285,7 @@ These are the APIs that are implemented by the resource provider. Below is the d
 | resourceProviderNamespace | The resource provider namespace can only be ASCII alphanumeric characters and the &quot;.&quot; character. |
 | resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks).  The resource type can only be ASCII alphanumeric characters. |
 | resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; and any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
+| actionName | The action that is being performed on the resource (or a container that is inside the resource). |
 | api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
 
 ### Put Resource
@@ -458,13 +459,7 @@ Updates a resource belonging to a resource group.
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Body**
 
@@ -520,13 +515,7 @@ Deletes a resource from the resource group.
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -568,13 +557,7 @@ Returns a resource belonging to a resource group. Resource types can be nested a
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -636,12 +619,7 @@ Returns all the resources of a particular type belonging to a resource group. Th
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -720,11 +698,7 @@ This allows the resource provider to remain regional and still support this quer
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -793,13 +767,9 @@ As some examples: (1) the website RP may require that all websites belonging to 
 | --- | --- |
 | POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/moveResources?api-version={api-version} |
 
-**Arguments       **
+**Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | Required. The subscriptionId for the Azure user. |
-| resourceGroupName | Required. The name of the resource group to be updated. |
-| api-version | Required. Specifies the version of the operation to use for this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -890,14 +860,7 @@ The HTTP verb and request body will \*not\* be used in identifying the "action" 
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| actionName | The action that is being performed on the resource (or a container that is inside the resource). |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 Examples of action names include: "restartVM" or "listStorageKeys".
 
