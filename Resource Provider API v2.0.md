@@ -301,7 +301,7 @@ Azure does not distinguish between creation and update. The resource provider sh
 
 **Arguments**
 
-Description here (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 The resource group names and resource names should be matched case insensitively. That means, for example, if a user creates a resource in resource group &quot;rG1&quot;, and then calls a read operation on &quot;RG1&quot;, the same resource should be returned even though the casing differs.
 
