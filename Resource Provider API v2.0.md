@@ -1503,18 +1503,9 @@ For a detailed explanation of each field in the response body, please refer to t
 | resourceType | Required, stringThe resource type that this object applies to. For example, for a database it'd be: Microsoft.SQL/servers/databases.   |
 | sku | Required, objectThe exact set of keys that define this sku. This matches the fields on the respective resource. |
 | sku.name | Required, stringThe name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| sku.tier | Required, stringThe tier of this particular SKU. Typically one of:
-- Free
-- Basic
-- Standard
-- Premium
- |
+| sku.tier | Required, stringThe tier of this particular SKU. Typically one of: <ul> <li>Free</li> <li>Basic</li> <li>Standard</li> <li>Premium</li></ul>|
 | capacity | Optional, objectIf the SKU supports scale out/in then the capacity object must be included. If scale out/in is not possible for the resource this may be omitted. |
-| capacity.scaleType | Required, enumOne of:
-- None – meaning the capacity is not adjustable in any way (e.g. it is fixed)
-- Manual – the user must manually scale out/in
-- Automatic – the user is permitted to scale this SKU in and out
- |
+| capacity.scaleType | Required, enumOne of: <ul><li>None – meaning the capacity is not adjustable in any way (e.g. it is fixed)</li> <li>Manual – the user must manually scale out/in</li> <li>Automatic – the user is permitted to scale this SKU in and out</li></ul>|
 | capacity.minimum | Required if scaleType != none, integerThe lowest permitted capacity for this resource. Typically 0 or 1. |
 | capacity.maximum | Required if scaleType != none, integerThe highest permitted capacity for this resource. This may vary per SKU, or it may be the same. |
 | capacity.default | Required if scaleType != none, integerThe default capacity.  Generally, if the user omits setting the capacity, the RP would use this value. |
