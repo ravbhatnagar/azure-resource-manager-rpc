@@ -72,14 +72,14 @@
      k. [202 Accepted and Location Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
      l. [Operation Resource Format (returned by Azure-AsyncOperation Header)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
 
-Enter file This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
+This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
 
 <div id='related-documents-id'/>
 ## Related Documents
 
 - [Cloud Service Model](http://sharepoint/sites/azure-arc/Windows%20Azure%20Service%20Model/Cloud%20Service%20Model.docx), for the high-level description of resource groups, resources, extensions and how they are modeled.
-- [Resource Manager Template Language Specification](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/Azure%20Resource%20Manager%20Template%20Language%20Specification.docx), for the detailed specification of the template language.
-- [Resource Manager](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/Azure%20Resource%20Manager%20API.docx)API, for the specification of the API exposed by CSM to Portal and other clients. ( [More up-to-date, published version](https://msdn.microsoft.com/en-us/library/dn790568.aspx) on MSDN.)
+- [Resource Manager Template Language Specification](https://azure.microsoft.com/en-us/documentation/articles/resource-group-authoring-templates/#resources), for the detailed specification of the template language.
+- [Resource Manager API](https://msdn.microsoft.com/en-us/library/dn790568.aspx), for the specification of the APIs exposed by ARM.
 
 <div id='common-api-details-id'/>
 ## Common API Details
@@ -102,7 +102,7 @@ The resource provider proxy will preserve all the client requests headers, with 
 | x-ms-client-principal-name | Always added (1st party only). Set to the principal name / UPN of the client JWT making the request. |
 | x-ms-client-principal-id | Added when available (1st party only). Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id. |
 | x-ms-client-tenant-id | Always added (1st party only). Set to the tenant ID of the client JWT making the request. |
-| x-ms-client-audience | Always added (1st party only). Set to the tenant ID of the client JWT making the request. |
+| x-ms-client-audience | Always added (1st party only). Set to the audience of the client JWT making the request. |
 | x-ms-client-issuer | Always added (1st party only). Set to the issuer of the client JWT making the request. |
 | x-ms-client-object-id | Always added (1st party only). Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available. |
 | x-ms-client-app-id | Always added (1st party only). Set to the app Id of the client JWT making the request. |
@@ -122,7 +122,7 @@ Any non-reserved headers provided by the client will pass as-is to the resource 
 | Content-Type | Set to application/json. This header is not sent in requests that don&#39;t have any content, such as all GET calls. |
 | Accept-Language | Specifies the preferred language for the response; all RPs should use this header when generating error messages or client facing text. |
 | x-ms-client-request-id | Caller-specified value identifying the request, in the form of a GUID with no decoration such as curly braces (e.g. client-request-id: 9C4D50EE-2D56-4CD3-8152-34347DC9F2B0). If the caller provides this header – the resource provider \*must\* log this with their traces to facilitate tracing a single request.If specified, this will be included in response information as a way to map the request if "x-ms-return-client-request-id"; is specified as "true". |
-| x-ms-return-client-request-id | OptionalTrue or false and indicates if a client-request-id should be included in the response. Default is false. |
+| x-ms-return-client-request-id | Optional. True or false and indicates if a client-request-id should be included in the response. Default is false. |
 
 <div id='req-query-param-id'/>
 #### Request Query Parameters
@@ -141,16 +141,14 @@ When satisfying incoming requests, it is assumed that the following values are s
 <div id='client-req-timeout-id'/>
 #### Client Request Timeout
 
-Requests proxied to the resource provider are made with a client timeout of 20 seconds (with a possible exception to 40-60 seconds, with pre-approval from CSM team). If request take more than 1 minute please consider using asynchronous request/response pattern.
+Requests proxied to the resource provider are made with a client timeout of 60 seconds. If request take more than 60 seconds please consider using asynchronous request/response pattern.
 
 The resource provider must respond within that time interval or the client will receive a 504 (timeout) error code and will not see the response from the RP.
 
 <div id='req-throttle-id'/>
 #### Request Throttling
 
-The resource provider should not need to throttle requests as the Resource Provider Front Door (RP-FD) will handle this responsibility.
-
-By default, Frontdoor throttles requests based on subscription id. The limits are 1200 PUT/POST/PATCH/DELETE requests per hour per node, and 15,000 GET requests per hour per node.
+ARM provides subscription level throttling. More details on these limits can be found [here] (https://azure.microsoft.com/en-us/documentation/articles/azure-subscription-service-limits/#overview)
 
 <div id='common-api-res-details-id'/>
 ### Common API Response Details
@@ -179,7 +177,7 @@ All long running operations (i.e. those that return 202 Accepted) will use these
 
 If the resource provider needs to return an error to any operation, it should return the appropriate HTTP error code and a message body as can be seen below. The message should be localized per the Accept-Language header specified in the original request such that it could be directly be exposed to users.
 
-It is recommended that resource providers return the \*code\* and \*message\* fields; however, the other fields are acceptable as additions. This format matches [the OData v4.0 schema](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.html#_Toc372793091) for error responses.
+The resource providers must return the \*code\* and \*message\* fields; however, the other fields are acceptable as additions. This format matches [the OData v4.0 schema](http://docs.oasis-open.org/odata/odata-json-format/v4.0/os/odata-json-format-v4.0-os.html#_Toc372793091) for error responses.
 
 **Response Body**
 
@@ -215,14 +213,14 @@ It is recommended that resource providers return the \*code\* and \*message\* fi
 | code | Required, string.String that can be used to programmatically identify the error. Some will be standardized for all Azure REST services, some will be domain specific. These error code should not be localized, but are typically a string like &quot;BadArgument&quot;, &quot;NotFound&quot;, etc. |
 | target | Optional, string.The target of the particular error (for example, the name of the property in error). |
 | details | Optional, string.An array of JSON objects that MUST contain name/value pairs for code and message, and MAY contain a name/value pair for target, as described above.The contents of this section are service-defined but must adhere to the aforementioned schema. |
-| ~~innererror~~ | ~~Optional, string.The contents of this object are service-defined. Usually this object contains information that will help debug the service.The innererror name/value pair SHOULD only be used in development environments in order to guard against potential security concerns around information disclosure.~~ |
+| innererror | Optional, string.The contents of this object are service-defined. Usually this object contains information that will help debug the service. |
 
 <div id='max-res-size-id'/>
 #### Max Response Size
 
-In all the calls the Azure makes to the resource provider, the maximum size of a response that Azure will accept from the resource providers is 4 MB.
+In all the calls that ARM makes to the resource provider, the maximum size of a response that ARM will accept from the resource providers is 4 MB.
 
-Any response greater than 4 MB in size will be dropped by Azure, and **500 Internal Server Error** will be returned to the client.  In general, APIs exposed by the resource provider should be designed to transmit relatively little data in keeping with the management nature of the API.
+Any response greater than 4 MB in size will be dropped by ARM, and **500 Internal Server Error** will be returned to the client.  In general, APIs exposed by the resource provider should be designed to transmit relatively little data in keeping with the management nature of the API.
 
 <div id='xfer-encoding-id'/>
 #### Transfer-Encoding
@@ -239,9 +237,9 @@ The frontdoor will \*not\* follow any redirects and will instead proxy them dire
 <div id='sub-lifecyclye-ref-id'/>
 ## Subscription Lifecycle API Reference
 
-### Updating a Subscription
+### Creating or Updating a Subscription
 
-Creates or updates a subscription for this particular resource provider. The update includes changes in the state of the subscription which may trigger other actions (setup or teardown).
+Creates or updates a subscription for this particular resource provider. It includes changes in the state of the subscription which may trigger other actions (setup or teardown).
 
 This API uses the &quot;system&quot; version of 2.0 because it can be triggered by commerce and not necessarily by a user request.
 
