@@ -374,14 +374,14 @@ party artifacts which incur usage/billing in addition to the cost of the service
     "promotionCode": "Promotion Code",
     "version" : "Version of the 3rd Party Artifact"
     }
-
-| **plan** | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
-| --- | --- |
-| **plan.name** | Required, string.A user defined name of the 3rd Party Artifact that is being procured. |
-| **plan.publisher** | Required, string.The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
-| **plan.product** | Required, stringThe 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
-| **plan.promotionCode** | Optional, stringA publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
-| **plan.version** | Optional, stringThe version of the desired product/artifact.  Ignored by commerce. |
+| **Field** | **Description**|
+|----|----|
+| plan | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
+| plan.name | Required, string.A user defined name of the 3rd Party Artifact that is being procured. |
+| plan.publisher | Required, string.The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
+| plan.product | Required, stringThe 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
+| plan.promotionCode | Optional, stringA publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
+| plan.version | Optional, stringThe version of the desired product/artifact.  Ignored by commerce. |
 
 ##### Representing SKUs
 
@@ -408,16 +408,11 @@ The "sku" property is a complex type because it allows differentiation based on 
     "kind" : "resource kind"
     }
 
-| **Field** | Description |
+| **Field** | **Description** |
 | --- | --- |
 | **name** | Required, string The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| **tier** | Optional, string The tier of this particular SKU. Typically one of:
-- Free
-- Basic
-- Standard
-- Premium
-This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
-| **size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code. |
+| **tier** | Optional, string The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
+| **size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code.|
 | **family** | Optional, stringIf the service has different generations of hardware, for the same SKU, then that can be captured here. |
 | **capacity** | Optional, integer If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
 
@@ -990,33 +985,7 @@ This API is unique in that it is not scoped to a subscription – it is consider
 
 | Element name | Description |
 | --- | --- |
-| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:
--Compute/virtualMachines/capture/action
--Compute/virtualMachines/restart/action
--Compute/virtualMachines/write
--Compute/virtualMachines/read
--Compute/virtualMachines/delete
- Each action should include, in order:
-1. Resource Provider Namespace
-2. Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)
-3. If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)
-4. Read, Write, Action or Delete indicating which type applies.
-  1. If it is a PUT/PATCH on a collection or named value, Write should be used.
-  2. If it is a GET, Read should be used.
-  3. If it is a DELETE, Delete should be used.
-  4. If it is a POST, Action should be used.
- As an example:
--Compute/virtualMachines/extensions/capture/action
-  - Namespace: Microsoft.Compute
-  - Resource Type: virtualMachines/extensions
-  - Custom action name: capture
-  - Action verb: action (because it is a POST)
--Compute/virtualMachines/extensions/write
-  - Namespace: Microsoft.Compute
-  - Resource Type: virtualMachines/extensions
-  - Custom action name: \*none\*
-  - Action verb: write (because it is a PUT/PATCH)
-As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:Resource: "Storage Resource Provider"Operation: "Registers the Storage Resource Provider"Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." |
+| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:- <ul><li>Compute/virtualMachines/capture/action</li> <li>Compute/virtualMachines/restart/action</li> <li>Compute/virtualMachines/write</li> <li>Compute/virtualMachines/read</li> <li>Compute/virtualMachines/delete</li></ul> Each action should include, in order: <ul> <li> Resource Provider Namespace</li> <li> Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)</li> <li>If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)</li> <li>Read, Write, Action or Delete indicating which type applies.</li> <ul><li>If it is a PUT/PATCH on a collection or named value, Write should be used.</li> <li> If it is a GET, Read should be used.</li> <li>If it is a DELETE, Delete should be used.</li> <li>If it is a POST, Action should be used.</li></ul> </ul> As an example: <ul> <li>Compute/virtualMachines/extensions/capture/action</li> <ul> <li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: capture</li> <li>Action verb: action (because it is a POST)</li></ul> <li>Compute/virtualMachines/extensions/write</li><ul><li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: \*none\*</li> <li>Action verb: write (because it is a PUT/PATCH)</li> </ul> </ul> As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:<ul> <li>Resource: "Storage Resource Provider" </li> <li>Operation: "Registers the Storage Resource Provider"</li> <li>Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." </li> </ul> |
 | display | **Required.** Contains the localized display information for this particular operation / action. These value will be used by several clients for (1) custom role definitions for RBAC; (2) complex query filters for the event service; and (3) audit history / records for management operations. |
 | display.provider | **Required**.The localized friendly form of the resource provider name – it is expected to also include the publisher/company responsible. It should use Title Casing and begin with "Microsoft" for 1st
  party services.  e.g. "Microsoft Monitoring Insights" or "Microsoft Compute." |
