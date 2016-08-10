@@ -1,39 +1,76 @@
 # Resource Provider API v2.0
 
 ## Contents
-1. [Related Documents](https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) 
-2. [Common API Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
-    a. [Common API Request Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
-         i) [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-req-header-mod-id) </br>
-         ii) [Client Request Headers] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-header-id) </br>
-         iii) [Request Query Parameters] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-query-param-id) </br>
-	    	iv) [Case Insensitivity for Requests] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#case-insensitivity-req-id) </br>
-	    	v) [Client Request Timeout] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
-	    	vi) [Request Throttling] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
-    b. [Common API Response Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-res-details-id) </br>
-	    	i) [Response Headers] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#res-headers-id) </br>
-	    	ii) [Error Response Content] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#err-res-content-id) </br>
-	    	iii) [Max Response Size] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#max-res-size-id) </br>
-	    	iv) [Transfer-Encoding] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#xfer-encoding-id) </br>
-	    	v) [Redirecting the Client] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#redirect-client-id) </br>
-3. [Subscription Lifecycle API Reference] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-    a. [Updating a subscription] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-	i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-	ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-	iii) [Subscription States] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-4. [Resource API Reference] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-    a. [Put Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-    b. [Patch Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-    c. [Delete Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-    d. [Get Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+1. [Related Documents](https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) 
+2. [Common API Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
+    a. [Common API Request Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
+         i) [Proxy Request Header Modifications] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-req-header-mod-id) </br>
+         ii) [Client Request Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-header-id) </br>
+         iii) [Request Query Parameters] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-query-param-id) </br>
+	    	iv) [Case Insensitivity for Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#case-insensitivity-req-id) </br>
+	    	v) [Client Request Timeout] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
+	    	vi) [Request Throttling] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
+    b. [Common API Response Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-res-details-id) </br>
+	    	i) [Response Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#res-headers-id) </br>
+	    	ii) [Error Response Content] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#err-res-content-id) </br>
+	    	iii) [Max Response Size] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#max-res-size-id) </br>
+	    	iv) [Transfer-Encoding] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#xfer-encoding-id) </br>
+	    	v) [Redirecting the Client] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#redirect-client-id) </br>
+3. [Subscription Lifecycle API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
+    a. [Updating a subscription] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
+	i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
+	ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
+	iii) [Subscription States] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
+4. [Resource API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
+    a. [Put Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+    b. [Patch Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+    c. [Delete Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
+    d. [Get Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+    e. [Get Resources in Resource Group] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+     f. [Get Resources in Subscription] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+      g. [Move Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+5. [Proxy API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
+    a. [Routing Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+    b. [Resource Action Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+     c. [Subscription wide Reads and Actions i.e. GETs/POSTs] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+     d. [Exposing Available Operations (for Client discovery)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+      e. [Check Name Availability Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		i) [Request (for Global Uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		ii) [Request (for local uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+		iii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
+6. [Addendum] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
+     a. [Instrumentation and Tracing across services] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     b. [ETags for Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     c. [Regional Endpoints] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     d. [Nested Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     e. [Resource Group Deletes] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     f. [Asynchronous Operations] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     g. [Creating or Updating Resources (PUT/PATCH)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     h. [DELETE Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     i. [Call Action (POST {resourceUrl/action})] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     j. [Provisioning State Property] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     k. [202 Accepted and Location Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+     l. [Operation Resource Format (returned by Azure-AsyncOperation Header)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
 
 Enter file This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
 
@@ -199,6 +236,7 @@ The Resource Provider may return a 307 response code to the customer if they wan
 
 The frontdoor will \*not\* follow any redirects and will instead proxy them directly back to the client.
 
+<div id='sub-lifecyclye-ref-id'/>
 ## Subscription Lifecycle API Reference
 
 ### Updating a Subscription
@@ -271,7 +309,7 @@ If a 200, the response body will contain the original request that was PUT per t
 
 #### Subscription States contents here
 
-
+<div id='resource-ref-id'/>
 ## Resource API Reference
 
 These are the APIs that are implemented by the resource provider. Below is the description of arguments that will be used in PUT, PATCH, DELETE and GET. 
@@ -288,6 +326,7 @@ These are the APIs that are implemented by the resource provider. Below is the d
 | actionName | The action that is being performed on the resource (or a container that is inside the resource). |
 | api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
 
+<div id='put-resource-id'/>
 ### Put Resource
 
 Creates or updates a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section).
@@ -442,6 +481,7 @@ Headers common to all responses.
 
 The response body should contain _at least_ the original request that was PUT (and any other properties that would be returned in a GET, such as provisioningState, name, Id and type).
 
+<div id='patch-resource-id'/>
 ### Patch Resource
 
 Updates a resource belonging to a resource group.
@@ -498,6 +538,7 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
        }
     }
 
+<div id='delete-resource-id'/>
 ### Delete Resource
 
 Deletes a resource from the resource group.
@@ -540,6 +581,7 @@ Only headers common to all responses.
 
 Empty
 
+<div id='get-resource-id'/>
 ### Get Resource
 
 Returns a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section).
