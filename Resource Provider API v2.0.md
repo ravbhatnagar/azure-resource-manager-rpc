@@ -322,16 +322,16 @@ These are the APIs that are implemented by the resource provider. Below is the d
 | resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 80 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and &#39;-&#39;, &#39;\_&#39;, &#39;(&#39;, &#39;)&#39; and&#39;.&#39;.  Note that the name cannot end with &#39;.&#39; |
 | resourceProviderNamespace | The resource provider namespace can only be ASCII alphanumeric characters and the &quot;.&quot; character. |
 | resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks).  The resource type can only be ASCII alphanumeric characters. |
-| resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; and any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
+| resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; OR any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
 | actionName | The action that is being performed on the resource (or a container that is inside the resource). |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[<code>-preview &#124 -alpha</code> &#124-beta &#124-rc&#124-privatepreview]. |
 
 <div id='put-resource-id'/>
 ### Put Resource
 
-Creates or updates a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section).
+Creates or updates a resource belonging to a resource group. Resource types can be nested and, if so, must follow the Resource API guidelines.
 
-Azure does not distinguish between creation and update. The resource provider should consult its database if a distinction is necessary. However, a PUT should always be allowed to overwrite an existing resource.
+ARM does not distinguish between creation and update. The resource provider should consult its datastore if a distinction is necessary. However, a PUT should always be allowed to overwrite an existing resource.
 
 #### Request
 
