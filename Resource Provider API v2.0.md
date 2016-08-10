@@ -1,39 +1,39 @@
 # Resource Provider API v2.0
 
 ## Contents
-1. [Related Documents](https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) 
-2. [Common API Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-details-id) </br>
-    a. [Common API Request Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-req-details-id) </br>
-         i) [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#proxy-req-header-mod-id) </br>
-         ii) [Client Request Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-header-id) </br>
-         iii) [Request Query Parameters] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-query-param-id) </br>
-	    	iv) [Case Insensitivity for Requests] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#case-insensitivity-req-id) </br>
-	    	v) [Client Request Timeout] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#client-req-timeout-id) </br>
-	    	vi) [Request Throttling] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#req-throttle-id) </br>
-    b. [Common API Response Details] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#common-api-res-details-id) </br>
-	    	i) [Response Headers] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#res-headers-id) </br>
-	    	ii) [Error Response Content] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#err-res-content-id) </br>
-	    	iii) [Max Response Size] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#max-res-size-id) </br>
-	    	iv) [Transfer-Encoding] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#xfer-encoding-id) </br>
-	    	v) [Redirecting the Client] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#redirect-client-id) </br>
-3. [Subscription Lifecycle API Reference] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-    a. [Updating a subscription] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-	i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-	ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-	iii) [Subscription States] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-4. [Resource API Reference] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-    a. [Put Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-    b. [Patch Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-    c. [Delete Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-    d. [Get Resource] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		i) [Request] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
-		ii) [Response] (https://github.com/ravbhatnagar/testrepo1/blob/master/testSpec1.md#related-documents-id) <br/>
+1. [Related Documents](https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) 
+2. [Common API Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
+    a. [Common API Request Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
+         i) [Proxy Request Header Modifications] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-req-header-mod-id) </br>
+         ii) [Client Request Headers] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-header-id) </br>
+         iii) [Request Query Parameters] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-query-param-id) </br>
+	    	iv) [Case Insensitivity for Requests] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#case-insensitivity-req-id) </br>
+	    	v) [Client Request Timeout] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
+	    	vi) [Request Throttling] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
+    b. [Common API Response Details] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-res-details-id) </br>
+	    	i) [Response Headers] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#res-headers-id) </br>
+	    	ii) [Error Response Content] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#err-res-content-id) </br>
+	    	iii) [Max Response Size] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#max-res-size-id) </br>
+	    	iv) [Transfer-Encoding] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#xfer-encoding-id) </br>
+	    	v) [Redirecting the Client] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#redirect-client-id) </br>
+3. [Subscription Lifecycle API Reference] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+    a. [Updating a subscription] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+	i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+	ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+	iii) [Subscription States] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+4. [Resource API Reference] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+    a. [Put Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+    b. [Patch Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+    c. [Delete Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+    d. [Get Resource] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		i) [Request] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
+		ii) [Response] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#related-documents-id) <br/>
 
 Enter file This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
 
@@ -241,9 +241,7 @@ This API uses the &quot;system&quot; version of 2.0 because it can be triggered 
 
 | **Element name** | Description |
 | --- | --- |
-| **state** | **Required**.One of &quot;Registered&quot;, &quot;Unregistered&quot;, &quot;Warned&quot;, &quot;Suspended&quot; , or &quot;Deleted&quot;; used to indicate the current state of the subscription. The resource provider should always take the latest state. Transition among any states is valid (it is possible to receive Suspended / Warned before Registered, for example). **Registered:** The subscription was entitled to use your &quot;ResourceProviderNamespace&quot;.   Azure will use this subscription in future communications. You may also do any initial state setup as a result of this notification type.  When a subscription is &quot;fixed&quot; / restored from being suspended, it will return to the &quot;Registered&quot; state.  All management APIs must function (PUT/PATCH/DELETE/POST/GET), all resources must run normally; bill normally.  **Warned:** The subscription has been warned (generally due to forthcoming suspension resulting from fraud or non-payment). Resources must be offline but in running (or quickly recoverable state).  Do **not** deallocate resources.   GET/DELETE management APIs must function; PUT/PATCH/POST must not.  Any emitted usage will be ignored.    **Suspended:** The subscription has been suspended (generally due to fraud or non-payment) and the Resource Provider should stop the subscription from generating any additional usage. Pay-for-use resource should have access rights revoked when the subscription is disabled.   In such cases the Resource Provider should also mark the Resource State as &quot;Suspended.&quot;  We recommend that you treat this as a soft-delete so as to get appropriate customer attention. GET/DELETE management APIs must function; PUT/PATCH/POST must not.  |
-| **Deleted:** The customer has cancelled their Windows Azure subscription and its content \*must\* be cleaned up by the resource provider.The resource provider does \*not\* receive a DELETE call for each resource – this is expected to be a &quot;cascade&quot; deletion.   **Unregistered:**
-Either the customer has not yet chosen to use the resource provider, or the customer has decided to stop using the Resource Provider. Only GETs are permitted. In the case of formerly registered subscriptions, all existing resources would already have been deleted by the customer explicitly. |
+| **state** | **Required**.One of &quot;Registered&quot;, &quot;Unregistered&quot;, &quot;Warned&quot;, &quot;Suspended&quot; , or &quot;Deleted&quot;; used to indicate the current state of the subscription. The resource provider should always take the latest state. Transition among any states is valid (it is possible to receive Suspended / Warned before Registered, for example).<br/> **Registered:** The subscription was entitled to use your &quot;ResourceProviderNamespace&quot;.   Azure will use this subscription in future communications. You may also do any initial state setup as a result of this notification type.  When a subscription is &quot;fixed&quot; / restored from being suspended, it will return to the &quot;Registered&quot; state.  All management APIs must function (PUT/PATCH/DELETE/POST/GET), all resources must run normally; bill normally. <br/>  **Warned:** The subscription has been warned (generally due to forthcoming suspension resulting from fraud or non-payment). Resources must be offline but in running (or quickly recoverable state).  Do **not** deallocate resources.   GET/DELETE management APIs must function; PUT/PATCH/POST must not.  Any emitted usage will be ignored. <br/>    **Suspended:** The subscription has been suspended (generally due to fraud or non-payment) and the Resource Provider should stop the subscription from generating any additional usage. Pay-for-use resource should have access rights revoked when the subscription is disabled.   In such cases the Resource Provider should also mark the Resource State as &quot;Suspended.&quot;  We recommend that you treat this as a soft-delete so as to get appropriate customer attention. GET/DELETE management APIs must function; PUT/PATCH/POST must not. <br/>  **Deleted:** The customer has cancelled their Windows Azure subscription and its content \*must\* be cleaned up by the resource provider.The resource provider does \*not\* receive a DELETE call for each resource – this is expected to be a &quot;cascade&quot; deletion. <br/>  **Unregistered:** Either the customer has not yet chosen to use the resource provider, or the customer has decided to stop using the Resource Provider. Only GETs are permitted. In the case of formerly registered subscriptions, all existing resources would already have been deleted by the customer explicitly. |
 | **properties** | Required.Property bag contains other name/value pairs that can be used for telemetry and logging. The resource provider should handle unexpected property key/value pairs without issue, as we will introduce new metadata without updating the contract version. The value inside the properties envelope may be a complex type / object / token itself. |
 | **properties.tenantId** | Optional.The AAD directory/tenant to which the subscription belongs. |
 | **properties.locationPlacementId** | Optional.The placement requirement for the subscription based on its country of origin / offer type / offer category / etc. This is used in geo-fencing of certain regions or regulatory boundaries (e.g. Australia ring-fencing). |
@@ -276,7 +274,19 @@ If a 200, the response body will contain the original request that was PUT per t
 
 ## Resource API Reference
 
-These are the APIs that are implemented by the resource provider.
+These are the APIs that are implemented by the resource provider. Below is the description of arguments that will be used in PUT, PATCH, DELETE and GET. 
+
+<div id='crud-arguments-id'/>
+###Arguments for CRUD on Resource
+| Argument | Description |
+| --- | --- |
+| subscriptionId | The subscriptionId for the Azure user. |
+| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 80 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and &#39;-&#39;, &#39;\_&#39;, &#39;(&#39;, &#39;)&#39; and&#39;.&#39;.  Note that the name cannot end with &#39;.&#39; |
+| resourceProviderNamespace | The resource provider namespace can only be ASCII alphanumeric characters and the &quot;.&quot; character. |
+| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks).  The resource type can only be ASCII alphanumeric characters. |
+| resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; and any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
+| actionName | The action that is being performed on the resource (or a container that is inside the resource). |
+| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
 
 ### Put Resource
 
@@ -292,14 +302,7 @@ Azure does not distinguish between creation and update. The resource provider sh
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 80 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and &#39;-&#39;, &#39;\_&#39;, &#39;(&#39;, &#39;)&#39; and&#39;.&#39;.  Note that the name cannot end with &#39;.&#39; |
-| resourceProviderNamespace | The resource provider namespace can only be ASCII alphanumeric characters and the &quot;.&quot; character. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks).  The resource type can only be ASCII alphanumeric characters. |
-| resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; and any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 The resource group names and resource names should be matched case insensitively. That means, for example, if a user creates a resource in resource group &quot;rG1&quot;, and then calls a read operation on &quot;RG1&quot;, the same resource should be returned even though the casing differs.
 
@@ -371,14 +374,14 @@ party artifacts which incur usage/billing in addition to the cost of the service
     "promotionCode": "Promotion Code",
     "version" : "Version of the 3rd Party Artifact"
     }
-
-| **plan** | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
-| --- | --- |
-| **plan.name** | Required, string.A user defined name of the 3rd Party Artifact that is being procured. |
-| **plan.publisher** | Required, string.The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
-| **plan.product** | Required, stringThe 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
-| **plan.promotionCode** | Optional, stringA publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
-| **plan.version** | Optional, stringThe version of the desired product/artifact.  Ignored by commerce. |
+| **Field** | **Description**|
+|----|----|
+| plan | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
+| plan.name | Required, string.A user defined name of the 3rd Party Artifact that is being procured. |
+| plan.publisher | Required, string.The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
+| plan.product | Required, stringThe 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
+| plan.promotionCode | Optional, stringA publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
+| plan.version | Optional, stringThe version of the desired product/artifact.  Ignored by commerce. |
 
 ##### Representing SKUs
 
@@ -405,16 +408,11 @@ The "sku" property is a complex type because it allows differentiation based on 
     "kind" : "resource kind"
     }
 
-| **Field** | Description |
+| **Field** | **Description** |
 | --- | --- |
 | **name** | Required, string The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| **tier** | Optional, string The tier of this particular SKU. Typically one of:
-- Free
-- Basic
-- Standard
-- Premium
-This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
-| **size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code. |
+| **tier** | Optional, string The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
+| **size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code.|
 | **family** | Optional, stringIf the service has different generations of hardware, for the same SKU, then that can be captured here. |
 | **capacity** | Optional, integer If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
 
@@ -456,13 +454,7 @@ Updates a resource belonging to a resource group.
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Body**
 
@@ -518,13 +510,7 @@ Deletes a resource from the resource group.
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -566,13 +552,7 @@ Returns a resource belonging to a resource group. Resource types can be nested a
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -634,12 +614,7 @@ Returns all the resources of a particular type belonging to a resource group. Th
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -718,11 +693,7 @@ This allows the resource provider to remain regional and still support this quer
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -791,13 +762,9 @@ As some examples: (1) the website RP may require that all websites belonging to 
 | --- | --- |
 | POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/moveResources?api-version={api-version} |
 
-**Arguments       **
+**Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | Required. The subscriptionId for the Azure user. |
-| resourceGroupName | Required. The name of the resource group to be updated. |
-| api-version | Required. Specifies the version of the operation to use for this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -888,14 +855,7 @@ The HTTP verb and request body will \*not\* be used in identifying the "action" 
 
 **Arguments**
 
-| Argument | Description |
-| --- | --- |
-| subscriptionId | The subscriptionId for the Azure user. |
-| resourceGroupName | The resource group name uniquely identifies the resource group within the user subscriptionId. |
-| resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. |
-| resourceName | The name of the resource. |
-| actionName | The action that is being performed on the resource (or a container that is inside the resource). |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 Examples of action names include: "restartVM" or "listStorageKeys".
 
@@ -1025,33 +985,7 @@ This API is unique in that it is not scoped to a subscription – it is consider
 
 | Element name | Description |
 | --- | --- |
-| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:
--Compute/virtualMachines/capture/action
--Compute/virtualMachines/restart/action
--Compute/virtualMachines/write
--Compute/virtualMachines/read
--Compute/virtualMachines/delete
- Each action should include, in order:
-1. Resource Provider Namespace
-2. Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)
-3. If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)
-4. Read, Write, Action or Delete indicating which type applies.
-  1. If it is a PUT/PATCH on a collection or named value, Write should be used.
-  2. If it is a GET, Read should be used.
-  3. If it is a DELETE, Delete should be used.
-  4. If it is a POST, Action should be used.
- As an example:
--Compute/virtualMachines/extensions/capture/action
-  - Namespace: Microsoft.Compute
-  - Resource Type: virtualMachines/extensions
-  - Custom action name: capture
-  - Action verb: action (because it is a POST)
--Compute/virtualMachines/extensions/write
-  - Namespace: Microsoft.Compute
-  - Resource Type: virtualMachines/extensions
-  - Custom action name: \*none\*
-  - Action verb: write (because it is a PUT/PATCH)
-As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:Resource: "Storage Resource Provider"Operation: "Registers the Storage Resource Provider"Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." |
+| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:- <ul><li>Compute/virtualMachines/capture/action</li> <li>Compute/virtualMachines/restart/action</li> <li>Compute/virtualMachines/write</li> <li>Compute/virtualMachines/read</li> <li>Compute/virtualMachines/delete</li></ul> Each action should include, in order: <ul> <li> Resource Provider Namespace</li> <li> Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)</li> <li>If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)</li> <li>Read, Write, Action or Delete indicating which type applies.</li> <ul><li>If it is a PUT/PATCH on a collection or named value, Write should be used.</li> <li> If it is a GET, Read should be used.</li> <li>If it is a DELETE, Delete should be used.</li> <li>If it is a POST, Action should be used.</li></ul> </ul> As an example: <ul> <li>Compute/virtualMachines/extensions/capture/action</li> <ul> <li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: capture</li> <li>Action verb: action (because it is a POST)</li></ul> <li>Compute/virtualMachines/extensions/write</li><ul><li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: \*none\*</li> <li>Action verb: write (because it is a PUT/PATCH)</li> </ul> </ul> As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:<ul> <li>Resource: "Storage Resource Provider" </li> <li>Operation: "Registers the Storage Resource Provider"</li> <li>Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." </li> </ul> |
 | display | **Required.** Contains the localized display information for this particular operation / action. These value will be used by several clients for (1) custom role definitions for RBAC; (2) complex query filters for the event service; and (3) audit history / records for management operations. |
 | display.provider | **Required**.The localized friendly form of the resource provider name – it is expected to also include the publisher/company responsible. It should use Title Casing and begin with "Microsoft" for 1st
  party services.  e.g. "Microsoft Monitoring Insights" or "Microsoft Compute." |
