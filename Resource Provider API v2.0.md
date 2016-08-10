@@ -43,34 +43,34 @@
       g. [Move Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
                 i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-5. [Proxy API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
-    a. [Routing Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-    b. [Resource Action Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-     c. [Subscription wide Reads and Actions i.e. GETs/POSTs] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-     d. [Exposing Available Operations (for Client discovery)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-      e. [Check Name Availability Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		i) [Request (for Global Uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		ii) [Request (for local uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		iii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-6. [Addendum] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
-     a. [Instrumentation and Tracing across services] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     b. [ETags for Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     c. [Regional Endpoints] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     d. [Nested Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     e. [Resource Group Deletes] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     f. [Asynchronous Operations] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     g. [Creating or Updating Resources (PUT/PATCH)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     h. [DELETE Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     i. [Call Action (POST {resourceUrl/action})] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     j. [Provisioning State Property] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     k. [202 Accepted and Location Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-     l. [Operation Resource Format (returned by Azure-AsyncOperation Header)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
+5. [Proxy API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+    a. [Routing Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+    b. [Resource Action Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+     c. [Subscription wide Reads and Actions i.e. GETs/POSTs] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+     d. [Exposing Available Operations (for Client discovery)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+      e. [Check Name Availability Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		i) [Request (for Global Uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		ii) [Request (for local uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+		iii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+6. [Addendum] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     a. [Instrumentation and Tracing across services] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     b. [ETags for Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     c. [Regional Endpoints] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     d. [Nested Resources] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     e. [Resource Group Deletes] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     f. [Asynchronous Operations] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     g. [Creating or Updating Resources (PUT/PATCH)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     h. [DELETE Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     i. [Call Action (POST {resourceUrl/action})] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     j. [Provisioning State Property] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     k. [202 Accepted and Location Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
+     l. [Operation Resource Format (returned by Azure-AsyncOperation Header)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#addendum-id) <br/>
 
 Enter file This document covers the API contract that must be implemented by each Resource Provider in order to onboard to the Azure management API surface (as well as RBAC, tags, and templates).
 
@@ -867,6 +867,7 @@ Headers common to all responses.
 
 Empty
 
+<div id='proxy-ref-id'/>
 ## Proxy API reference
 
 The RP-FD will proxy requests to backing resource providers even if they are not related directly to resource management or subscription lifecycle changes.
@@ -1103,6 +1104,7 @@ Headers common to all responses.
 | reason | **Required if nameAvailable == false.**  Invalid indicates the name provided does not match the resource provider&#39;s naming requirements (incorrect length, unsupported characters, etc.)  AlreadyExists indicates that the name is already in use and is therefore unavailable. |
 | message | **Required if nameAvailable == false.**  Localized. If reason == invalid, provide the user with the reason why the given name is invalid, and provide the resource naming requirements so that the user can select a valid name.  If reason == AlreadyExists, explain that <resourceName> is already in use, and direct them to select a different name. |
 
+<div id='addendum-id'/>
 ## Addendum
 
 ### Instrumentation and Tracing across services
