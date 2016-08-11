@@ -180,30 +180,24 @@ The resource providers must return the \*code\* and \*message\* fields; however,
 
 **Response Body**
 
-{
-
+    {
     "error": {
-      "code": "BadArgument",
-      "message": "The provided database &#39;foo&#39; has an invalid username.",
-      "target": "query",
-      "details": [
-        {
-	
-         "code": "301",
-         "target": "$search"
-         "message": "$search query option not supported",
-        }
-      ]
-
-      "innererror": {
-        "trace": [...],
-        "context": {...}
-
+      	"code": "BadArgument",
+      	"message": "The provided database &#39;foo&#39; has an invalid username.",
+      	"target": "query",
+      	"details": [
+        	{
+        	 "code": "301",
+         	"target": "$search"
+         	"message": "$search query option not supported",
+        	}
+      	]
+      	"innererror": {
+      		"trace": [...],
+        	"context": {...}
       }
-
     }
-
-}
+    }
 
 
 | Element name | Description |
@@ -361,9 +355,6 @@ The resource group name and resource name **MUST** come from the URL and not the
       },
       "sku" : {
            	"name" : "sku code, such as P3",
-           	"tier" : "free|basic|standard|premium",
-           	"size" : "A0",
-           	"family": "A", // later B, C, etc.
            	"capacity" : {number}
      },
      "plan" : {
@@ -379,14 +370,14 @@ The resource group name and resource name **MUST** come from the URL and not the
 | --- | --- |
 | **location** | Required, string. The location of the resource.  This would be one amongst the supported Azure Geo Regions registered by the RP:West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | East US 2 | etc.  Resource Providers should ignore whitespace and capitalization when accepting geo regions. That is, &quot;West US,&quot; &quot;westus&quot; and &quot;West us&quot; should all be acceptable for the georegion. This will greatly simplify the pattern for CLI / Powershell / SDK clients. An RP should use this to create the resource in the appropriate geo-affinity region.  The geo region of a resource never changes after it is created. |
 | **tags** | A list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource, and each tag must have a key no greater than 512 characters (and value no greater than 256 characters).  The resource provider is expected to store these tags with the resource.  For fields like &quot;label&quot; or &quot;description,&quot; it is recommended that the RP does not expose this as a separate property and instead leverage tags with these keys (clients will handle these &quot;recognized&quot; tags differently).  The tag name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;\*&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;+&#39;, &#39;/&#39;, and any control characters. |
-| **properties** | Optional, format not defined by ARM.Settings used to provision or configure the resource. The order of parameters in the request is unspecified. RPs should not rely on any particular ordering. |
-| **kind** | Optional.  string. Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-| **sku.name** | Required, string The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| **sku.tier** | Optional, string The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
-| **sku.size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code.|
-| **sku.family** | Optional, stringIf the service has different generations of hardware, for the same SKU, then that can be captured here. |
-| **sku.capacity** | Optional, integer If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
-| **plan** | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
+| **properties** | Optional. Format not defined by ARM.Settings used to provision or configure the resource. The order of parameters in the request is unspecified. RPs should not rely on any particular ordering. |
+| **kind** | Optional, string. Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
+| **sku.name** | Required, string. The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
+| **sku.tier** | Optional, string. The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
+| **sku.size** | Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.|
+| **sku.family** | Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here. |
+| **sku.capacity** | Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
+| **plan** | Optional, Complex Type. Format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
 | **plan.name** | Required, string. A publisher defined name of the 3rd Party Artifact that is being procured. |
 | **plan.publisher** | Required, string. The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
 | **plan.product** | Required, string. The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
@@ -515,9 +506,11 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
 
     {
     "sku" : {
-      "name" : "F0",
-      "tier" : "free",
-      "capacity" : 1
+      	"name" : "F0",
+      	"size" : "A0",
+      	"tier" : "free",
+      	"capacity" : 1,
+      	"family": "A", // later B, C, etc.
        }
     }
 
