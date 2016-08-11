@@ -347,77 +347,51 @@ The resource group names and resource names should be matched case insensitively
 
 Additionally, we MUST preserve the casing provided by the user. That means we should return back the most recently specified casing to the client (and we MUST not normalize / return back a toupper/tolower form of the resource group or resource name, for example).
 
-The resource group name and resource name should come from the URL and not the request body. That is because there is no writable property for resource group, and the property is optional for PUT / PATCH (but the URL is REQUIRED).
+The resource group name and resource name **MUST** come from the URL and not the request body. That is because there is no writable property for resource group, and the property is optional for PUT / PATCH (but the URL is REQUIRED).
 
 **Request Body**
 
     {
       "location": "North US",
       "tags": {
-          "key": "value"
+          	"key": "value"
     },
-      "properties": { "comment: Resource defined structure" },
+      "properties": { 
+            	"comment: Resource defined structure" 
+      },
+      "sku" : {
+           	"name" : "sku code, such as P3",
+           	"tier" : "free|basic|standard|premium",
+           	"size" : "A0",
+           	"family": "A", // later B, C, etc.
+           	"capacity" : {number}
+     },
+     "plan" : {
+        	"name": "User defined name of the 3rd Party Artifact",
+            	"publisher": "Publisher of the 3rd Party Artifact ",
+    		"product": "OfferID for the 3rd Party Artifact ",
+    		"promotionCode": "Promotion Code",
+    		"version" : "Version of the 3rd Party Artifact"
+    }
       "kind" : "resource kind"
     }
 | **Field** | Description |
 | --- | --- |
-| **location** | Required, string.The location of the resource.  This would be one amongst the supported Azure Geo Regions registered by the RP:West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | East US 2 | etc.  Resource Providers should ignore whitespace and capitalization when accepting geo regions. That is, &quot;West US,&quot; &quot;westus&quot; and &quot;West us&quot; should all be acceptable for the georegion. This will greatly simplify the pattern for CLI / Powershell / SDK clients. An RP should use this to create the resource in the appropriate geo-affinity region.  The geo region of a resource never changes after it is created. |
-| **tags** | A list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).  A maximum of 15 tags can be provided for a resource, and each tag must have a key no greater than 512 characters (and value no greater than 256 characters).  The resource provider is expected to store these tags with the resource.  For fields like &quot;label&quot; or &quot;description,&quot; it is recommended that the RP does not expose this as a separate property and instead leverage tags with these keys (clients will handle these &quot;recognized&quot; tags differently).  The tag name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;\*&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;+&#39;, &#39;/&#39;, and any control characters. |
-| **properties** | Optional, format not defined by Azure.Settings used to provision or configure the resource. The order of parameters in the request is unspecified. RPs should not rely on any particular ordering. |
-| **kind** | Optional.  String.Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-
-##### Resource Request Properties Envelope
-
-Every resource can have a section with properties. These are the settings that describe or configure the resource. For example, the configuration for a job collection can be seen below:
-
-    {
-     "location": "North US",
-     "tags": {
-         "department": "Finance",
-         "app": "Quarterly Reports",
-         "owner": "chlama"
-       },
-     "properties": {
-       "mode": "Standard",
-        "quota": {
-            "minimumRecurrence": "00:15:00",
-            "maximumJobs": 100
-        }
-       },
-     "kind" : "resource kind"
-    }
-
-Since different types of resources have different settings, the contents of this field are left under the control of the resource provider and CSM will never be made aware of these fields. However, in the case of CSM service templates, the template execution engine will replace all parameters and expressions \*before\* passing the instantiated object to the RPs.
-
-[11/25/2015] It is important to note that, properties already defined outside of "properties" envelope should not be repeated inside "properties" in any form. Example of such proprieties is 'name', 'tags', 'location', etc. Failure to comply with this rule will be considered as RP contract violation and must be fixed.
-
-
-The settings can range from simple key-value pairs to complex nested structures. The user specifies these settings and Azure will pass them to the resource provider unmodified.
-
-The settings can range from simple key-value pairs to complex nested structures. The user specifies these settings and Azure will pass them to the resource provider unmodified.
-
-##### Purchasing 3rd Party Artifacts
-
-The Plan entity should be used for establishing the purchase context of any 3 rd Party Artifact that is made available through the Azure Data Market. These artifacts can be 3rd Party Extension Resources like MySql Databases or an artifacts used in first party resources like images deployed in Azure Virtual Machines.  Additionally, the plan entity can be used for procuring 1st
-party artifacts which incur usage/billing in addition to the cost of the service (e.g. VMs running SQL/BizTalk/etc).
-
-~~**Note: The Plan entity cannot be used to procure 1st Party Resources.**~~
-
-    "plan": {
-    "name": "User defined name of the 3rd Party Artifact",
-    "publisher": "Publisher of the 3rd Party Artifact ",
-    "product": "OfferID for the 3rd Party Artifact ",
-    "promotionCode": "Promotion Code",
-    "version" : "Version of the 3rd Party Artifact"
-    }
-| **Field** | **Description**|
-|----|----|
-| plan | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
-| plan.name | Required, string.A user defined name of the 3rd Party Artifact that is being procured. |
-| plan.publisher | Required, string.The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
-| plan.product | Required, stringThe 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
-| plan.promotionCode | Optional, stringA publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
-| plan.version | Optional, stringThe version of the desired product/artifact.  Ignored by commerce. |
+| **location** | Required, string. The location of the resource.  This would be one amongst the supported Azure Geo Regions registered by the RP:West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | East US 2 | etc.  Resource Providers should ignore whitespace and capitalization when accepting geo regions. That is, &quot;West US,&quot; &quot;westus&quot; and &quot;West us&quot; should all be acceptable for the georegion. This will greatly simplify the pattern for CLI / Powershell / SDK clients. An RP should use this to create the resource in the appropriate geo-affinity region.  The geo region of a resource never changes after it is created. |
+| **tags** | A list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource, and each tag must have a key no greater than 512 characters (and value no greater than 256 characters).  The resource provider is expected to store these tags with the resource.  For fields like &quot;label&quot; or &quot;description,&quot; it is recommended that the RP does not expose this as a separate property and instead leverage tags with these keys (clients will handle these &quot;recognized&quot; tags differently).  The tag name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;\*&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;+&#39;, &#39;/&#39;, and any control characters. |
+| **properties** | Optional, format not defined by ARM.Settings used to provision or configure the resource. The order of parameters in the request is unspecified. RPs should not rely on any particular ordering. |
+| **kind** | Optional.  string. Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
+| **sku.name** | Required, string The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
+| **sku.tier** | Optional, string The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
+| **sku.size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code.|
+| **sku.family** | Optional, stringIf the service has different generations of hardware, for the same SKU, then that can be captured here. |
+| **sku.capacity** | Optional, integer If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
+| **plan** | Optional, Complex Type, format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
+| **plan.name** | Required, string. A publisher defined name of the 3rd Party Artifact that is being procured. |
+| **plan.publisher** | Required, string. The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
+| **plan.product** | Required, string. The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
+| **plan.promotionCode** | Optional, string. A publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
+| **plan.version** | Optional, string. The version of the desired product/artifact.  Ignored by commerce. |
 
 ##### Representing SKUs
 
@@ -426,31 +400,43 @@ party _artifacts_ are addressed via the plan entity.
 
 The "sku" property is a complex type because it allows differentiation based on tiers (e.g. premium, free), families (e.g. generates of hardware) and other important details. The "sku" value should be **outside** the properties envelope.
 
-    {
-    "id": "/subscriptions/{id}/resourceGroups/{group}/providers/{rpns}/{type}/{name}",
-    "name": "Finance Report Jobs",
-    "type": "Microsoft.Scheduler/jobCollections",
-    "location": "North US",
-    "properties": {
-    },
+##### Purchasing 3rd Party Artifacts
 
-    "sku" : {
-           "name" : "sku code, such as P3",
-           "tier" : "free|basic|standard|premium",
-           "size" : "A0",
-           "family": "A", // later B, C, etc.
-           "capacity" : {number}
-     },
-    "kind" : "resource kind"
+The Plan entity **MUST** be used for establishing the purchase context of any 3rd Party Artifact that is made available through the Azure Data Market. These artifacts can be 3rd Party Extension Resources like MySql Databases or an artifacts used in first party resources like images deployed in Azure Virtual Machines. Additionally, the plan entity can be used for procuring 1st
+party artifacts which incur usage/billing in addition to the cost of the service (e.g. VMs running SQL/BizTalk/etc).
+
+##### Resource Request Properties Envelope
+
+Every resource can have a section with properties. These are the settings that describe or configure the resource. For example, the configuration for a job collection can be seen below:
+
+PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}?api-version=2016-01-01
+
+    {
+     "location": "North US",
+     "tags": {
+         "department": "Finance",
+         "app": "Quarterly Reports",
+         "owner": "chlama"
+       },
+     "properties": {  
+       "sku": {  
+           "name": "standard"  
+        },  
+        "quota": {  
+           "maxJobCount": "10",  
+           "maxRecurrence": {  
+              "Frequency": "minute",  
+              "interval": "1"  
+            }  
+        }  
+    }  
     }
 
-| **Field** | **Description** |
-| --- | --- |
-| **name** | Required, string The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| **tier** | Optional, string The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
-| **size** | Optional, stringWhen the name field is the combination of tier and some other value, this would be the standalone code.|
-| **family** | Optional, stringIf the service has different generations of hardware, for the same SKU, then that can be captured here. |
-| **capacity** | Optional, integer If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
+Since different types of resources have different settings, the contents of this field are left under the control of the resource provider and ARM will never be made aware of these fields. However, in the case of ARM templates, the template execution engine will replace all parameters and expressions \*before\* passing the instantiated object to the RPs.
+
+ It is important to note that, properties already defined outside of "properties" envelope **MUST** not be repeated inside "properties" in any form. Example of such properties is 'name', 'tags', 'location', etc. 
+
+The settings can range from simple key-value pairs to complex nested structures. The user specifies these settings and Azure will pass them to the resource provider unmodified.
 
 #### Response
 
