@@ -34,27 +34,20 @@
     d. [Get Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
 		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-    e. [Get Resources in Resource Group] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-     f. [Get Resources in Subscription] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-      g. [Move Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
+    e. [Move Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
                 i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
 5. [Proxy API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
-    a. [Routing Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
-    b. [Resource Action Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+    a. [Resource Action Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
-     c. [Subscription wide Reads and Actions i.e. GETs/POSTs] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+     b. [Subscription wide Reads and Actions i.e. GETs/POSTs] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
-     d. [Exposing Available Operations (for Client discovery)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+     c. [Exposing Available Operations (for Client discovery)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
-      e. [Check Name Availability Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
+      d. [Check Name Availability Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		i) [Request (for Global Uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		ii) [Request (for local uniqueness)] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
 		iii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-ref-id) <br/>
@@ -372,15 +365,15 @@ The resource group name and resource name **MUST** come from the URL and not the
 | **tags** | A list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource, and each tag must have a key no greater than 512 characters (and value no greater than 256 characters).  The resource provider is expected to store these tags with the resource.  For fields like &quot;label&quot; or &quot;description,&quot; it is recommended that the RP does not expose this as a separate property and instead leverage tags with these keys (clients will handle these &quot;recognized&quot; tags differently).  The tag name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;\*&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;+&#39;, &#39;/&#39;, and any control characters. |
 | **properties** | Optional. Format not defined by ARM.Settings used to provision or configure the resource. The order of parameters in the request is unspecified. RPs should not rely on any particular ordering. |
 | **kind** | Optional, string. Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
-| **sku.name** | Required, string. The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
+| **sku.name** | Required (if sku is specified), string. The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
 | **sku.tier** | Optional, string. The tier of this particular SKU. Typically one of: Free, Basic, Standard, Premium. This field is required to be implemented by the RP if the service has more than one tier, but is not required on a PUT. |
 | **sku.size** | Optional, string. When the name field is the combination of tier and some other value, this would be the standalone code.|
 | **sku.family** | Optional, string. If the service has different generations of hardware, for the same SKU, then that can be captured here. |
 | **sku.capacity** | Optional, integer. If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted. |
 | **plan** | Optional, Complex Type. Format defined by Azure.Fixed set of fields that provide the purchase context for a 3rd Party Product that is made available in Azure through Data Market. E.g. 3rd Party VM images that can be used in the VM Resource Type. |
-| **plan.name** | Required, string. A publisher defined name of the 3rd Party Artifact that is being procured. |
-| **plan.publisher** | Required, string. The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
-| **plan.product** | Required, string. The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
+| **plan.name** | Required (if plan is specified), string. A publisher defined name of the 3rd Party Artifact that is being procured. |
+| **plan.publisher** | Required (if plan is specified), string. The publisher of the 3 rd Party Artifact that is being bought. E.g. NewRelic |
+| **plan.product** | Required (if plan is specified), string. The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. |
 | **plan.promotionCode** | Optional, string. A publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
 | **plan.version** | Optional, string. The version of the desired product/artifact.  Ignored by commerce. |
 
@@ -403,24 +396,24 @@ Every resource can have a section with properties. These are the settings that d
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}?api-version=2016-01-01
 
     {
-     "location": "North US",
-     "tags": {
+     	"location": "North US",
+     	"tags": {
          "department": "Finance",
          "app": "Quarterly Reports",
          "owner": "chlama"
        },
-     "properties": {  
-       "sku": {  
+       	"sku": {  
            "name": "standard"  
-        },  
+        },
+     	"properties": {  
         "quota": {  
            "maxJobCount": "10",  
            "maxRecurrence": {  
               "Frequency": "minute",  
               "interval": "1"  
+              }  
             }  
-        }  
-    }  
+    	}  
     }
 
 Since different types of resources have different settings, the contents of this field are left under the control of the resource provider and ARM will never be made aware of these fields. However, in the case of ARM templates, the template execution engine will replace all parameters and expressions \*before\* passing the instantiated object to the RPs.
@@ -428,6 +421,8 @@ Since different types of resources have different settings, the contents of this
  It is important to note that, properties already defined outside of "properties" envelope **MUST** not be repeated inside "properties" in any form. Example of such properties is 'name', 'tags', 'location', etc. 
 
 The settings can range from simple key-value pairs to complex nested structures. The user specifies these settings and Azure will pass them to the resource provider unmodified.
+
+**NOTE** For proxy only resources, location and tags are not applicable in the request body.
 
 #### Response
 
@@ -458,7 +453,7 @@ The response body should contain _at least_ the original request that was PUT (a
 <div id='patch-resource-id'/>
 ### Patch Resource
 
-Updates a resource belonging to a resource group.
+Updates a resource belonging to a resource group. ARM requires RPs to support PATCH for updating tags for a resource.
 
 #### Request
 
@@ -508,9 +503,8 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
     "sku" : {
       	"name" : "F0",
       	"size" : "A0",
-      	"tier" : "free",
       	"capacity" : 1,
-      	"family": "A", // later B, C, etc.
+      	"family": "A" // later B, C, etc.
        }
     }
 
@@ -560,17 +554,37 @@ Empty
 <div id='get-resource-id'/>
 ### Get Resource
 
-Returns a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section).
+Returns a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section). Below are the three different request URIs to get resource or resource collection under a resource group or subscription. 
 
-#### Request
+#### Request - Get a specific resource under resource group
 
 | Method | Request URI |
 | --- | --- |
 | GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
 
+#### Request - Get resource collection under resource group
+
+Returns all the resources of a particular type belonging to a resource group. This is *not\* required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
+
+| Method | Request URI |
+| --- | --- |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}?api-version={api-version} |
+
+#### Request - Get resource collection under subscription
+
+Returns all the resources of a particular type belonging to a _subscription_. This is **\*not\*** required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
+
+ARM will query each regional endpoint that has at least one resource for the subscription and aggregate the responses for the client.
+
+This allows the resource provider to remain regional and still support this query pattern (i.e. each regional endpoint needs only return the resources for that subscription in its region).
+
+| Method | Request URI |
+| --- | --- |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}?api-version={api-version} |
+
 **Arguments**
 
-[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
+[Description here] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -590,6 +604,10 @@ The resource provider should return 200 (OK) to indicate that the operation comp
 
 If the resource does not exist, 404 (NotFound) should be returned. For other errors (e.g. internal errors) use the appropriate HTTP error code.
 
+If the resource group does not exist, 404 (NotFound) will be returned by the proxy \*without\* reaching the resource provider.
+
+If the subscription does not exist, 404 (NotFound) will be returned by the proxy \*without\* reaching the resource provider. If the subscription is not registered with the resource provider, it should return a 404 (NotFound) or an empty collection. It must not return a 5xx status code or 403.
+
 **Response Headers**
 
 Headers common to all responses.
@@ -606,7 +624,6 @@ Headers common to all responses.
               "key2": "value 2"
        },
     "kind" : "resource kind",
-    "etag": "00000000-0000-0000-0000-000000000000",
     "properties": { "comment: "Resource defined structure" }
     }
 
@@ -620,45 +637,9 @@ For a detailed explanation of each field in the response body, please refer to t
 | etag | Optional, stringThe Etag field is \*not\* required. If it is provided in the response body, it must also be provided as a header per [the normal ETag convention](http://www.rfc-editor.org/rfc/rfc2616.txt).  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the ETag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. The full guidance can be found in the Addendum. |
 | kind | Optional.  String.Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value. |
 
-### Get Resources in the Resource Group
-
-Returns all the resources of a particular type belonging to a resource group. This is **\*not\*** required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
-
-#### Request
-
-| Method | Request URI |
-| --- | --- |
-| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}?api-version={api-version} |
-
-**Arguments**
-
-[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
-
-**Request Headers**
-
-Only headers common to all requests.
-
-**Request Body**
-
-Empty
-
-#### Response
-
-The response includes an HTTP status code, a set of response headers, and a response body.
-
-**Status Code**
-
-The resource provider should return 200 (OK) to indicate that the operation completed successfully. For other errors (e.g. internal errors) use the appropriate HTTP error code.
-
-If the resource group does not exist, 404 (NotFound) will be returned by the proxy \*without\* reaching the resource provider.
-
-**Response Headers**
-
-Headers common to all responses.
-
 **Paging Response Body**
 
-The paging approach required by CSM is server side paging, as described [here](https://microsoft.sharepoint.com/teams/azure-arc/_layouts/15/WopiFrame.aspx?sourcedoc=%7b3379D14C-13C8-4B2C-B00F-15DDCF7E2F06%7d&amp;action=default).
+The paging approach required by ARM is server side paging, as described [here](https://microsoft.sharepoint.com/teams/azure-arc/_layouts/15/WopiFrame.aspx?sourcedoc=%7b3379D14C-13C8-4B2C-B00F-15DDCF7E2F06%7d&amp;action=default).
 
     {
       "value": [
@@ -695,76 +676,6 @@ Implementation details:
 - Server may return less records than requested with nextLink. Returning zero records with NextLink is an acceptable response.
 - Clients must fetch records until the nextLink is not returned back / null. Clients should never rely on number of returned records to determinate if pagination is completed.
 
-### Get Resources in the Subscription
-
-Returns all the resources of a particular type belonging to a _subscription_. This is **\*not\*** required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
-
-The front door will query each regional endpoint that has at least one resource for the subscription and aggregate the responses for the client.
-
-This allows the resource provider to remain regional and still support this query pattern (i.e. each regional endpoint needs only return the resources for that subscription in its region).
-
-#### Request
-
-| Method | Request URI |
-| --- | --- |
-| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}?api-version={api-version} |
-
-**Arguments**
-
-[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
-
-**Request Headers**
-
-Only headers common to all requests.
-
-**Request Body**
-
-Empty
-
-#### Response
-
-The response includes an HTTP status code, a set of response headers, and a response body.
-
-**Status Code**
-
-The resource provider should return 200 (OK) to indicate that the operation completed successfully. For other errors (e.g. internal errors) use the appropriate HTTP error code.
-
-If the subscription does not exist, 404 (NotFound) will be returned by the proxy \*without\* reaching the resource provider. If the subscription is not registered with the resource provider, it should return a 404 (NotFound) or an empty collection. It must not return a 5xx status code or 403.
-
-**Response Headers**
-
-Headers common to all responses.
-
-**Paging Response Body**
-
-The paging approach required by CSM is server side paging, as described [here](https://microsoft.sharepoint.com/teams/azure-arc/_layouts/15/WopiFrame.aspx?sourcedoc=%7b3379D14C-13C8-4B2C-B00F-15DDCF7E2F06%7d&amp;action=default).
-
-    {
-      "value": [
-      {
-        "id": "{url to resource 1}",
-        "name": "Name1",
-        "type": "{resourceProviderNamespace}/{resourceType}",
-        "location": "North US"
-        "properties": { "comment: "Resource defined structure" },
-        "kind" : "resource kind"
-      },
-
-      {
-        "id": "{url to resource 2}",
-        "name": "Name2",
-        "type": "{resourceProviderNamespace}/{resourceType}",
-        "location": "North US",
-        "properties": { "comment: "Resource defined structure" },
-        "kind" : "resource kind"
-    }
-    ],
-     "nextLink": "{originalRequestUrl}?$skipToken={opaqueString}"
-    }
-
-The nextLink field is expected to point to the URL the client should use to fetch the next page (per server side paging). This matches the OData guidelines for paged responses [here](http://docs.oasis-open.org/odata/odata-json-format/v4.0/cos01/odata-json-format-v4.0-cos01.html#_Toc372793055). If a resource provider does not support paging, it should return the same body but leave nextLink null for future compatibility.
-
-For a detailed explanation of each field in the response body, please refer to the request body description in the PUT resource section.
 
 ### Resource Move Reference
 
@@ -810,7 +721,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The frontdoor will perform some basic validation before forwarding the request to the resource provider. This includes:
+ARM will perform some basic validation before forwarding the request to the resource provider. This includes:
 
 | Failure Reason | Error Code |
 | --- | --- |
@@ -846,21 +757,15 @@ Empty
 <div id='proxy-ref-id'/>
 ## Proxy API reference
 
-The RP-FD will proxy requests to backing resource providers even if they are not related directly to resource management or subscription lifecycle changes.
+ARM will proxy requests to backing resource providers even if they are not related directly to resource management or subscription lifecycle changes.
 
 These requests are considered to be part of the "Proxy API" and examples include: restart a VM; fetch storage account keys; or increase the capacity of a mobile service.
-
-### Routing Requests
-
-From a client's point of view, the Azure API head is flat across all resources. To disambiguate requests across resource providers, the resource provider namespace will always be present in proxied request URLs (e.g. "compute" or "web").
-
-If the customer's request does \*not\* include a resource provider namespace, then the RP-FD itself will service the request (examples include: finding all resources in a resource group; finding all resources that match a particular tag key or value; finding all resources of a particular type in a subscription).
 
 ### Resource Action Requests
 
 Actions can be performed on objects (e.g. reimage VM instance), but still need to be modeled in a consistent way across internal and external resource providers. Through this consistency, resource providers will be able to "light-up" authorization / RBAC scenarios without changing their API surface.
 
-In order to make the "action" consistent across resource providers, the action name must be included in the URL via a specific format (which is aligned with OData). **This value is extracted as the last segment in the URL that does not have a matching type or container preceding it (i.e. the last odd segment).**
+In order to make the "action" consistent across resource providers, the action name must be included in the URL via a specific format (which is aligned with OData).
 
 The HTTP verb and request body will \*not\* be used in identifying the "action" being taken on the resource provider if the action name is provided.
 
@@ -1004,10 +909,9 @@ This API is unique in that it is not scoped to a subscription – it is consider
 
 | Element name | Description |
 | --- | --- |
-| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:- <ul><li>Compute/virtualMachines/capture/action</li> <li>Compute/virtualMachines/restart/action</li> <li>Compute/virtualMachines/write</li> <li>Compute/virtualMachines/read</li> <li>Compute/virtualMachines/delete</li></ul> Each action should include, in order: <ul> <li> Resource Provider Namespace</li> <li> Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)</li> <li>If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)</li> <li>Read, Write, Action or Delete indicating which type applies.</li> <ul><li>If it is a PUT/PATCH on a collection or named value, Write should be used.</li> <li> If it is a GET, Read should be used.</li> <li>If it is a DELETE, Delete should be used.</li> <li>If it is a POST, Action should be used.</li></ul> </ul> As an example: <ul> <li>Compute/virtualMachines/extensions/capture/action</li> <ul> <li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: capture</li> <li>Action verb: action (because it is a POST)</li></ul> <li>Compute/virtualMachines/extensions/write</li><ul><li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: \*none\*</li> <li>Action verb: write (because it is a PUT/PATCH)</li> </ul> </ul> As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:<ul> <li>Resource: "Storage Resource Provider" </li> <li>Operation: "Registers the Storage Resource Provider"</li> <li>Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." </li> </ul> |
+| name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:- <ul><li>Microsoft.Compute/virtualMachines/capture/action</li> <li>Microsoft.Compute/virtualMachines/restart/action</li> <li>Microsoft.Compute/virtualMachines/write</li> <li>Microsoft.Compute/virtualMachines/read</li> <li>Microsoft.Compute/virtualMachines/delete</li></ul> Each action should include, in order: <ul> <li> Resource Provider Namespace</li> <li> Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)</li> <li>If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)</li> <li>Read, Write, Action or Delete indicating which type applies.</li> <ul><li>If it is a PUT/PATCH on a collection or named value, Write should be used.</li> <li> If it is a GET, Read should be used.</li> <li>If it is a DELETE, Delete should be used.</li> <li>If it is a POST, Action should be used.</li></ul> </ul> As an example: <ul> <li>Microsoft.Compute/virtualMachines/extensions/capture/action</li> <ul> <li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: capture</li> <li>Action verb: action (because it is a POST)</li></ul> <li>Microsoft.Compute/virtualMachines/extensions/write</li><ul><li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: \*none\*</li> <li>Action verb: write (because it is a PUT/PATCH)</li> </ul> </ul> As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:<ul> <li>Resource: "Storage Resource Provider" </li> <li>Operation: "Registers the Storage Resource Provider"</li> <li>Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." </li> </ul> |
 | display | **Required.** Contains the localized display information for this particular operation / action. These value will be used by several clients for (1) custom role definitions for RBAC; (2) complex query filters for the event service; and (3) audit history / records for management operations. |
-| display.provider | **Required**.The localized friendly form of the resource provider name – it is expected to also include the publisher/company responsible. It should use Title Casing and begin with "Microsoft" for 1st
- party services.  e.g. "Microsoft Monitoring Insights" or "Microsoft Compute." |
+| display.provider | **Required**.The localized friendly form of the resource provider name – it is expected to also include the publisher/company responsible. It should use Title Casing and begin with "Microsoft" for 1st party services.  e.g. "Microsoft Monitoring Insights" or "Microsoft Compute." |
 | display.resource | **Required**.The localized friendly form of the resource type related to this action/operation – it should match the public documentation for the resource provider. It should use Title Casing – for examples, please refer to the "name" section.  **This value should be unique for a particular URL type** (e.g. nested types should \*not\* reuse their parent&#39;s display.resource field). e.g. "Virtual Machines" or "Scheduler Job Collections", or "Virtual Machine VM Sizes" or "Scheduler Jobs" |
 | display.operation  | **Required**.The localized friendly name for the operation, as it should be shown to the user. It should be concise (to fit in drop downs) but clear (i.e. self-documenting). It should use Title Casing and include the entity/resource to which it applies.   Prescriptive guidance:Read {Resource Type Name}Create or Update {Resource Type Name}Delete {Resource Type Name}<User Friendly Action Name> {Resource Type Name} As examples:Read Virtual MachineCreate or Update Virtual MachineDelete Virtual MachineRestart Virtual Machine  |
 | display.description | **Required**.The localized friendly description for the operation, as it should be shown to the user. It should be thorough, yet concise – it will be used in tool tips and detailed views.  Prescriptive guidance for resources:Read any <display.resource>Create or Update any  <display. resource>Delete any <display. resource><User Friendly Action Name> any <display.resources>  |
