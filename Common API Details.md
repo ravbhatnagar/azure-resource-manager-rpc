@@ -1,3 +1,6 @@
+<div id='common-api-details-id'/>
+# Common API Details
+
 ## Contents
 1. [Common API Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
     a. [Common API Request Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
@@ -8,8 +11,6 @@
 	    	v) [Client Request Timeout] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
 	    	vi) [Request Throttling] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
 
-<div id='common-api-details-id'/>
-# Common API Details
 
 <div id='common-api-req-details-id'/>
 ## Common API Request Details
