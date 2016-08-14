@@ -912,18 +912,22 @@ This API is unique in that it is not scoped to a subscription – it is consider
 | name | **Required**.The name of the operation being performed on this particular object. It should match the action name that appears in RBAC / the event service.  Examples of operations include:- <ul><li>Microsoft.Compute/virtualMachines/capture/action</li> <li>Microsoft.Compute/virtualMachines/restart/action</li> <li>Microsoft.Compute/virtualMachines/write</li> <li>Microsoft.Compute/virtualMachines/read</li> <li>Microsoft.Compute/virtualMachines/delete</li></ul> Each action should include, in order: <ul> <li> Resource Provider Namespace</li> <li> Type hierarchy for which the action applies (e.g. server/databases for a SQL Azure database)</li> <li>If an &quot;action,&quot; the custom action name (e.g. capture / restart / etc.)</li> <li>Read, Write, Action or Delete indicating which type applies.</li> <ul><li>If it is a PUT/PATCH on a collection or named value, Write should be used.</li> <li> If it is a GET, Read should be used.</li> <li>If it is a DELETE, Delete should be used.</li> <li>If it is a POST, Action should be used.</li></ul> </ul> As an example: <ul> <li>Microsoft.Compute/virtualMachines/extensions/capture/action</li> <ul> <li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: capture</li> <li>Action verb: action (because it is a POST)</li></ul> <li>Microsoft.Compute/virtualMachines/extensions/write</li><ul><li>Namespace: Microsoft.Compute</li> <li>Resource Type: virtualMachines/extensions</li> <li>Custom action name: \*none\*</li> <li>Action verb: write (because it is a PUT/PATCH)</li> </ul> </ul> As a note: all resource providers would need to include the "{Resource Provider Namespace}/register/action" operation in their response. This API is used to register for their service, and should include details about the operation (e.g. a localized name for the resource provider + any special considerations like PII release). Example values can be seen below:<ul> <li>Resource: "Storage Resource Provider" </li> <li>Operation: "Registers the Storage Resource Provider"</li> <li>Description: "Registers the subscription for the storage resource provider and enables the creation of storage accounts." </li> </ul> |
 | display | **Required.** Contains the localized display information for this particular operation / action. These value will be used by several clients for (1) custom role definitions for RBAC; (2) complex query filters for the event service; and (3) audit history / records for management operations. |
 | display.provider | **Required**.The localized friendly form of the resource provider name – it is expected to also include the publisher/company responsible. It should use Title Casing and begin with "Microsoft" for 1st party services.  e.g. "Microsoft Monitoring Insights" or "Microsoft Compute." |
-| display.resource | **Required**.The localized friendly form of the resource type related to this action/operation – it should match the public documentation for the resource provider. It should use Title Casing – for examples, please refer to the "name" section.  **This value should be unique for a particular URL type** (e.g. nested types should \*not\* reuse their parent&#39;s display.resource field). e.g. "Virtual Machines" or "Scheduler Job Collections", or "Virtual Machine VM Sizes" or "Scheduler Jobs" |
-| display.operation  | **Required**.The localized friendly name for the operation, as it should be shown to the user. It should be concise (to fit in drop downs) but clear (i.e. self-documenting). It should use Title Casing and include the entity/resource to which it applies.   Prescriptive guidance:Read {Resource Type Name}Create or Update {Resource Type Name}Delete {Resource Type Name}<User Friendly Action Name> {Resource Type Name} As examples:Read Virtual MachineCreate or Update Virtual MachineDelete Virtual MachineRestart Virtual Machine  |
-| display.description | **Required**.The localized friendly description for the operation, as it should be shown to the user. It should be thorough, yet concise – it will be used in tool tips and detailed views.  Prescriptive guidance for resources:Read any <display.resource>Create or Update any  <display. resource>Delete any <display. resource><User Friendly Action Name> any <display.resources>  |
-| origin | **Optional.** The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX.  Default value is "user,system"
-| origin | initiator | Appears in RBAC UX | Appears inAudit Logs UX |
-| --- | --- | --- | --- |
-| user | end user / svc principal | Yes | Yes |
-| system | Svc backend | No | Yes |
-| user,system | end user / svc principal / svc backend | Yes | Yes |
-
-  |
+| display.resource | **Required**.The localized friendly form of the resource type related to this action/operation – it should match the public documentation for the resource provider. It should use Title Casing – for examples, please refer to the "name" section.<br/>  **This value should be unique for a particular URL type** (e.g. nested types should \*not\* reuse their parent&#39;s display.resource field). <br/> e.g. "Virtual Machines" or "Scheduler Job Collections", or "Virtual Machine VM Sizes" or "Scheduler Jobs" |
+| display.operation  | **Required**.The localized friendly name for the operation, as it should be shown to the user. It should be concise (to fit in drop downs) but clear (i.e. self-documenting). It should use Title Casing and include the entity/resource to which it applies.<br/>  Prescriptive guidance: <br/> Read {Resource Type Name} <br/>Create or Update {Resource Type Name} <br/>Delete {Resource Type Name} <br/> <User Friendly Action Name> {Resource Type Name} <br/> As examples:Read Virtual Machine <br/>Create or Update Virtual Machine <br/>Delete Virtual Machine <br/> Restart Virtual Machine  |
+| display.description | **Required**.The localized friendly description for the operation, as it should be shown to the user. It should be thorough, yet concise – it will be used in tool tips and detailed views.<br/>  Prescriptive guidance for resources: <br/>Read any <display.resource> <br/>Create or Update any <display.resource> <br/>Delete any <display.resource> <br/> <User Friendly Action Name> any <display.resources>  |
+| origin | **Optional.** The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX.<br/> Default value is "user,system"<br/> Details below |
 | properties | **Reserved for future use.  Optional.** |
+
+####Origin details
+<table>
+<th>origin</th>
+<th>initiator</th>
+<th>Appears in RBAC UX </th>
+<th>Appears in Audit Logs UX </th>
+<tr><td>user</td><td>end user/service principal</td><td>Yes</td><td>Yes</td></tr>
+<tr><td>system</td><td>svc backend</td><td>No</td><td>Yes</td></tr>
+<tr><td>user, system</td><td>end user/service principal/ svc backend</td><td>Yes</td><td>Yes</td></tr>
+</table> 
 
 ### Check Name Availability Requests
 
@@ -998,10 +1002,6 @@ This will enable end-to-end troubleshooting from the portal, through CSM and to 
 3. x-ms-request-id: returned by the RP per request; typically maps to the RP's ActivityId
 4. x-ms-routing-id: maps to ARM's activity id (which is not otherwise exposed). This maps to implementation boundaries in ARM / the platform –RPs should not use this as their ActivityId.
 
-[http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/Ibiza\_CSM\_CorrelationIds.vsdx](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/Ibiza_CSM_CorrelationIds.vsdx)
-
- ![Correlation IDs in Ibiza] (https://github.com/ravbhatnagar/testrepo1/blob/master/CorrelationIds.png)
-
 ### ETags for Resources
 
 ETags may be returned for individual resources, and then sent via If-Match / If-None-Match headers for concurrency control. The resource provider is responsible for storing and validating ETags – the frontdoor will never inspect these values.
@@ -1032,12 +1032,12 @@ The behavior for ETags can be seen below:
 
 The Resource Provider should partition services across multiple regions in order to allow for continued service if there is a regional outage. It is recommended that the RP offer services in all Azure supported regions so that users may collocate interdependent resources within a resource group.
 
-The RP should register all the regions that they support, and should provide a different regional endpoint for each region. This regional endpoint and its backing state/data should be isolated from the other regions in order to isolate failure within Azure. The RP-FD will proxy the request to the appropriate region based on the resource&#39;s location.
+The RP should register all the regions that they support, and should provide a different regional endpoint for each region. This regional endpoint and its backing state/data should be isolated from the other regions in order to isolate failure within Azure. ARM will proxy the request to the appropriate region based on the resource&#39;s location.
 
 The resource provider should register regional DNS names for each regional endpoint. The naming of this region should follow the below convention:
 
-1. <region>.<provider namespace>.azure.com
-2. <region>.<subservice name>.<provider namespace>.azure.com
+1. {region}.{provider namespace}.azure.com
+2. {region}.{subservice name}.{provider namespace}.azure.com
 
 In a concrete form:
 
@@ -1053,18 +1053,19 @@ The RPC supports registering "nested" resource types for an RP with this format:
 The resource provider URIs are still expected to follow REST guidelines (e.g.: azure.com/subscriptions/{SubId}/resourceGroup/ {resourceGroup\_name}/providers/{namespace}/{type1}/{type1\_name}/{type2}/{type2\_name}
 
 Please see example URLs for nested resource types below:
-
-| PUT | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| Http Method | URI |
 | --- | --- |
+| PUT | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 | GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}?api-version={api-version} |
 | PATCH | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 | DELETE | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 
 ### Resource Group Deletes
 
-If the resource group containing resources is deleted, the RP will receive a DELETE call on each individual resource in that group. In some cases, the resources will have interdependencies and therefore can only be deleted in a certain order that RP-FD does not understand.
+If the resource group containing resources is deleted, the RP will receive a DELETE call on each individual tracked resource in that group. In some cases, the resources will have interdependencies and therefore can only be deleted in a certain order that ARM does not understand.
 
-To address this, the RP-FD can simply ask each resource to delete in arbitrary order. If the resource refuses the deletion, then the CSM will revisit it after trying to delete the rest of the group&#39;s resources. It will continue to revisit resources until all resources are deleted, or there is no further delete progress (for example if a delete fails because of an ACL).
+To address this, ARM can simply ask each resource to delete in arbitrary order. If the resource refuses the deletion, then ARM will revisit it after trying to delete the rest of the group&#39;s resources. It will continue to revisit resources until all tracked resources are deleted, or there is no further delete progress (for example if a delete fails because of an ACL).
 
 As a result, it is essential that the RPs follow proper REST guidelines when returning 2xx for a successful delete, and 4xx for a delete that is invalid (until a related resource is deleted first).
 
@@ -1205,8 +1206,8 @@ If the response status code is a 4xx or 5xx value, it indicates a failure in rea
 
 | Element name | Description |
 | --- | --- |
-| id | **Optional.** (but recommended)It should match what is used to GET the operation result. |
-| name | **Optional.** (but recommended)It must match the last segment of the &quot;id&quot; field, and will typically be a GUID / system generated value. |
+| id | **Optional.** (but recommended). It should match what is used to GET the operation result. |
+| name | **Optional.** (but recommended). It must match the last segment of the &quot;id&quot; field, and will typically be a GUID / system generated value. |
 | status | **Required.** … |
 | properties | **Optional** Like the properites envelope for resources, the resource provider can choose the values here. However, it should only be set if the status is Succeeded. |
 | error | **Required if status == failed or status == canceled.** This is the OData v4 error format, used by the RPC and will go into the v2.2 Azure REST API guidelines.  The full set of optional properties (e.g. inner errors / details) can be found in the &quot;Error Response&quot; section. |
@@ -1230,7 +1231,7 @@ The retry interval, strategy (e.g. exponential/linear) and max timeout should be
 
 The Azure Resource Provider contract and template language have special semantics around &quot;registered&quot; Azure resources – we call these **tracked resources**.
 
-If these objects are addressable by URIs but not "registered", we call these **proxy only** resources to differentiate them. Resource providers also have the important option of structuring their JSON payloads, but not giving these objects uris. This pattern is referred to below as JSON-only resources. ** **
+If these objects are addressable by URIs but not "registered", we call these **proxy only** resources to differentiate them.
 
 **Background REST philosophy**
 
@@ -1240,13 +1241,13 @@ If these objects are addressable by URIs but not "registered", we call these **p
 4. When we choose between understandable URLs and understandable templates, we should make the templates human understandable and the URLs machine consumable.
 5. Everything that is possible from a template should be possible through imperative APIs, but not necessarily as easily and may require special client code (orchestration is an obvious example).
 
-**Objects should**** be Tracked resources if:**
+**Objects should be Tracked resources if:**
 
 1. They are billable entities, including freemium models
 2. Need to be orchestrated by the template execution engine
 3. Related to above, they have dependencies on other resources
 
-**Objects should be top-level resources if: **
+**Objects should be top-level resources if:**
 
 1. They should be resources as per above
 2. Their lifetime is independent of other resources (only dependent on the containing resource group)
@@ -1264,11 +1265,6 @@ If these objects are addressable by URIs but not "registered", we call these **p
 3. It is important that they be simple to create in context of a containing resource.
 4. The lifecycle of the resources are managed outside ARM (e.g. agent based discovery).
 5. They are very common and would incur a performance overhead on the system (for example by cluttering the indices and GET resources calls)
-
-**Objects should be JSON-only resources if:**
-
-1. They do not need to be addressed independently by HTTP verbs
-2. Logically should be managed with their container
 
 **Comparison of Tracked Resources and proxy only Resources**
 
@@ -1380,12 +1376,12 @@ For a detailed explanation of each field in the response body, please refer to t
 
 | Field | Description |
 | --- | --- |
-| resourceType | Required, stringThe resource type that this object applies to. For example, for a database it'd be: Microsoft.SQL/servers/databases.   |
-| sku | Required, objectThe exact set of keys that define this sku. This matches the fields on the respective resource. |
-| sku.name | Required, stringThe name of the SKU. This is typically a letter + number code, such as A0 or P3 |
+| resourceType | Required, string. The resource type that this object applies to. For example, for a database it'd be: Microsoft.SQL/servers/databases.   |
+| sku | Required, object. The exact set of keys that define this sku. This matches the fields on the respective resource. |
+| sku.name | Required, string. The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
 | sku.tier | Required, stringThe tier of this particular SKU. Typically one of: <ul> <li>Free</li> <li>Basic</li> <li>Standard</li> <li>Premium</li></ul>|
-| capacity | Optional, objectIf the SKU supports scale out/in then the capacity object must be included. If scale out/in is not possible for the resource this may be omitted. |
-| capacity.scaleType | Required, enumOne of: <ul><li>None – meaning the capacity is not adjustable in any way (e.g. it is fixed)</li> <li>Manual – the user must manually scale out/in</li> <li>Automatic – the user is permitted to scale this SKU in and out</li></ul>|
+| capacity | Optional, object. If the SKU supports scale out/in then the capacity object must be included. If scale out/in is not possible for the resource this may be omitted. |
+| capacity.scaleType | Required, enum. One of: <ul><li>None – meaning the capacity is not adjustable in any way (e.g. it is fixed)</li> <li>Manual – the user must manually scale out/in</li> <li>Automatic – the user is permitted to scale this SKU in and out</li></ul>|
 | capacity.minimum | Required if scaleType != none, integerThe lowest permitted capacity for this resource. Typically 0 or 1. |
 | capacity.maximum | Required if scaleType != none, integerThe highest permitted capacity for this resource. This may vary per SKU, or it may be the same. |
 | capacity.default | Required if scaleType != none, integerThe default capacity.  Generally, if the user omits setting the capacity, the RP would use this value. |
