@@ -1,3 +1,13 @@
+## Contents
+1. [Common API Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
+    a. [Common API Request Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
+         i) [Proxy Request Header Modifications] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-req-header-mod-id) </br>
+         ii) [Client Request Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-header-id) </br>
+         iii) [Request Query Parameters] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-query-param-id) </br>
+	    	iv) [Case Insensitivity for Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#case-insensitivity-req-id) </br>
+	    	v) [Client Request Timeout] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
+	    	vi) [Request Throttling] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
+
 <div id='common-api-details-id'/>
 # Common API Details
 
