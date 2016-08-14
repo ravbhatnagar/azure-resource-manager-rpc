@@ -85,24 +85,24 @@ This document covers the API contract that must be implemented by each Resource 
 The resource provider proxy will preserve all the client requests headers, with the exception of modifications per the details below. The headers below are reserved and cannot be set by clients.
 
 
-| Header                                       | Description | 
-| :------------------------------------------- | :------------------------------------------------ |
-| referer | Always added (1st and 3rd party) Set to the full URI that the client connected to (which will be different than the RP URI, since it will have the public hostname instead of the RP hostname).This value can be used in generating FQDN for Location headers or other requests since RPs should not reference their endpoint name. |  
-| authorization | Always removed/changed (1st and 3rd party). The authorization used by the client to the proxy will be different than the authorization used to communicate from the proxy to the resource provider. |
-| x-ms-correlation-request-id | Always added (1st and 3rd party). Specifies the tracing correlation Id for the request; the resource provider \*must\* log this so that end-to-end requests can be correlated across Azure. |
-| x-ms-client-ip-address | Always added (1st and 3rd party). Set to the client IP address used in the request; this is required since the resource provider will not have access to the client IP. |
-| x-ms-client-principal-name | Always added (1st party only). Set to the principal name / UPN of the client JWT making the request. |
-| x-ms-client-principal-id | Added when available (1st party only). Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id. |
-| x-ms-client-tenant-id | Always added (1st party only). Set to the tenant ID of the client JWT making the request. |
-| x-ms-client-audience | Always added (1st party only). Set to the audience of the client JWT making the request. |
-| x-ms-client-issuer | Always added (1st party only). Set to the issuer of the client JWT making the request. |
-| x-ms-client-object-id | Always added (1st party only). Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available. |
-| x-ms-client-app-id | Always added (1st party only). Set to the app Id of the client JWT making the request. |
-| x-ms-client-app-id-acr | Always added (1st party only). Set to the app Id acr claim of the client JWT making the request. This is the application authentication context class reference claim which indicates how the client was authenticated. |
-| x-ms-client-authorization-source | Always added (1st party only). Specifies the authorization source of the token. It&#39;s value can be NotSpecified, Legacy, RoleBased, Bypassed, Direct and Management. |
-| x-ms-client-identity-provider | Always added (1st party only). Set to the identity provider of the client JWT. |
-| x-ms-client-wids | Always added (1st party only). Set to the wids of the client JWT. These identify the admins of the tenant which issued the JWT. |
-| x-ms-client-authentication-methods | Always added (1st party only). Set to the authentication method references of client JWT. |
+| Header                                       | Description |  1st or 3rd Party |
+| :------------------------------------------- | :----------------| :---------------------|
+| referer | Always added. Set to the full URI that the client connected to (which will be different than the RP URI, since it will have the public hostname instead of the RP hostname).This value can be used in generating FQDN for Location headers or other requests since RPs should not reference their endpoint name. |  1st and 3rd party |
+| authorization | Always removed/changed. The authorization used by the client to the proxy will be different than the authorization used to communicate from the proxy to the resource provider. | 1st and 3rd party |
+| x-ms-correlation-request-id | Always added. Specifies the tracing correlation Id for the request; the resource provider \*must\* log this so that end-to-end requests can be correlated across Azure. | 1st and 3rd party | 
+| x-ms-client-ip-address | Always added . Set to the client IP address used in the request; this is required since the resource provider will not have access to the client IP. | 1st and 3rd party |
+| x-ms-client-principal-name | Always added. Set to the principal name / UPN of the client JWT making the request. | 1st party only |
+| x-ms-client-principal-id | Added when available. Set to the principal Id of the client JWT making the request. Service principal will not have the principal Id. | 1st party only |
+| x-ms-client-tenant-id | Always added. Set to the tenant ID of the client JWT making the request. | 1st party only |
+| x-ms-client-audience | Always added. Set to the audience of the client JWT making the request. | 1st party only |
+| x-ms-client-issuer | Always added. Set to the issuer of the client JWT making the request. | 1st party only |
+| x-ms-client-object-id | Always added. Set to the object Id of the client JWT making the request. Not all users have object Id. For CSP (reseller) scenarios for example, object Id is not available. | 1st party only |
+| x-ms-client-app-id | Always added. Set to the app Id of the client JWT making the request. | 1st party only |
+| x-ms-client-app-id-acr | Always added. Set to the app Id acr claim of the client JWT making the request. This is the application authentication context class reference claim which indicates how the client was authenticated. | 1st party only |
+| x-ms-client-authorization-source | Always added. Specifies the authorization source of the token. It&#39;s value can be NotSpecified, Legacy, RoleBased, Bypassed, Direct and Management. | 1st party only |
+| x-ms-client-identity-provider | Always added. Set to the identity provider of the client JWT. |1st party only |
+| x-ms-client-wids | Always added. Set to the wids of the client JWT. These identify the admins of the tenant which issued the JWT. | 1st party only |
+| x-ms-client-authentication-methods | Always added. Set to the authentication method references of client JWT. | 1st party only|
 
 <div id='client-req-header-id'/>
 #### Client Request Headers
@@ -119,7 +119,7 @@ Any non-reserved headers provided by the client will pass as-is to the resource 
 <div id='req-query-param-id'/>
 #### Request Query Parameters
 
-The RP-FD will proxy request parameters (e.g. $filter; $expand; $skipToken; etc.) as-is to the Resource Providers. It will not delete, modify or add any query parameters before relaying the request.
+ARM will proxy request parameters (e.g. $filter; $expand; $skipToken; etc.) as-is to the Resource Providers. It will not delete, modify or add any query parameters before relaying the request.
 
 <div id='case-insensitivity-req-id'/>
 #### Case Insensitivity for Requests
@@ -156,13 +156,7 @@ All responses from resource providers should include the following headers:
 | Date | The date that the request was processed, in RFC 1123 format. |
 | x-ms-request-id | A unique identifier for the current operation, service generated.All the resource providers \*must\* return this value in the response headers to facilitate debugging. |
 
-All long running operations (i.e. those that return 202 Accepted) will use these headers:
-
-| Header | Description |
-| --- | --- |
-| Location | Set to the URL where the status of the long running operation can be checked. |
-| Azure-AsyncOperation | Set to the URL where the result of the long running operation can be checked; to optionally be used in addition to the Location header. |
-| Retry-After | Set to the delay that the client should use when checking for the status of the operation. This value is an integer and represents the seconds. |
+All long running operations response details are described below.
 
 <div id='error-res-content-id'/>
 #### Error Response Content
