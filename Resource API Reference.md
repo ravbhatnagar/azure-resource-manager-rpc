@@ -75,12 +75,12 @@ The resource group name and resource name **MUST** come from the URL and not the
      },
      "plan" : {
         	"name": "User defined name of the 3rd Party Artifact",
-            	"publisher": "Publisher of the 3rd Party Artifact ",
-    		"product": "OfferID for the 3rd Party Artifact ",
-    		"promotionCode": "Promotion Code",
-    		"version" : "Version of the 3rd Party Artifact"
+          "publisher": "Publisher of the 3rd Party Artifact ",
+    		  "product": "OfferID for the 3rd Party Artifact ",
+    		  "promotionCode": "Promotion Code",
+    		  "version" : "Version of the 3rd Party Artifact"
     }
-      "kind" : "resource kind"
+     "kind" : "resource kind"
     }
     
 | **Field** | Description |
@@ -208,7 +208,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will complete asynchronously.
 
 If the resource group \*or\* resource does not exist, 404 (NotFound) should be returned.
 
@@ -229,9 +229,7 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
     {
     "sku" : {
       	"name" : "F0",
-      	"size" : "A0",
-      	"capacity" : 1,
-      	"family": "A" // later B, C, etc.
+      	"capacity" : 1
        }
     }
 
@@ -268,7 +266,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 The resource provider can return 200 (OK) or 204 (NoContent) to indicate that the operation completed successfully. A 200 (OK) should be returned if the object exists and was deleted successfully; and a 204 (NoContent) should be used if the resource does not exist and the request is well formed.
 
-202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+202 (Accepted) can be returned to indicate that the operation will complete asynchronously.
 
 If the resource group does not exist, 404 (NotFound) will be returned by the proxy layer and will not reach the resource provider. 412 (PreconditionFailed) and other normal REST codes are acceptable as long as they match the REST guidelines.
 
