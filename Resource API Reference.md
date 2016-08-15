@@ -1,21 +1,22 @@
 # Resource API Reference
 
-1. [Resource API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#resource-ref-id) <br/>
-    a. [Put Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#put-resource-id) <br/>
-    b. [Patch Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#patch-resource-id) <br/>
-    c. [Delete Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#delete-resource-id) <br/>
-    d. [Get Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-		i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#get-resource-id) <br/>
-    e. [Move Resource] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#move-resource-id) <br/>
-                i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#move-resource-id) <br/>
-		ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#move-resource-id) <br/>
+- [Resource API Reference] (Resource API Reference.md#resource-ref-id) <br/>
+- [Arguments for CRUD on Resource] (Resource API Reference.md#crud-arguments-id) <br/>
+  - [Put Resource] (Resource API Reference.md#put-resource-id) <br/>
+    - [Request] (Resource API Reference.md#put-resource-id) <br/>
+    - [Response] (Resource API Reference.md#put-resource-id) <br/>
+    b. [Patch Resource] (Resource API Reference.md#patch-resource-id) <br/>
+		i) [Request] (Resource API Reference.md#patch-resource-id) <br/>
+		ii) [Response] (Resource API Reference.md#patch-resource-id) <br/>
+    c. [Delete Resource] (Resource API Reference.md#delete-resource-id) <br/>
+		i) [Request] (Resource API Reference.md#delete-resource-id) <br/>
+		ii) [Response] (Resource API Reference.md#delete-resource-id) <br/>
+    d. [Get Resource] (Resource API Reference.md#get-resource-id) <br/>
+		i) [Request] (Resource API Reference.md#get-resource-id) <br/>
+		ii) [Response] (Resource API Reference.md#get-resource-id) <br/>
+    e. [Move Resource] (Resource API Reference.md#move-resource-id) <br/>
+                i) [Request] (Resource API Reference.md#move-resource-id) <br/>
+		ii) [Response] (Resource API Reference.md#move-resource-id) <br/>
 
 <div id='resource-ref-id'/>
 ## Resource API Reference
