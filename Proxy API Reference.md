@@ -87,12 +87,14 @@ Examples include: available platform images for a subscription; available locati
 
 | Method | Request URI |
 | --- | --- |
-| GET/POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
+| POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/{actionName}?api-version={api-version} |
 
 #### Request (Tenant wide operations)
 | Method | Request URI |
 | --- | --- |
-| GET/POST | https://&lt;endpoint&gt;/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
+| GET | https://&lt;endpoint&gt;/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
+| POST | https://&lt;endpoint&gt;/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/{actionName}?api-version={api-version} |
 
 **Arguments**
 
