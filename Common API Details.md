@@ -1,22 +1,15 @@
 <div id='common-api-details-id'/>
 # Common API Details
 
-## Contents
-1. [Common API Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-details-id) </br>
-    a. [Common API Request Details] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#common-api-req-details-id) </br>
-         i) [Proxy Request Header Modifications] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#proxy-req-header-mod-id) </br>
-         ii) [Client Request Headers] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-header-id) </br>
-         iii) [Request Query Parameters] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-query-param-id) </br>
-	    	iv) [Case Insensitivity for Requests] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#case-insensitivity-req-id) </br>
-	    	v) [Client Request Timeout] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#client-req-timeout-id) </br>
-	    	vi) [Request Throttling] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#req-throttle-id) </br>
-
-
-<div id='common-api-req-details-id'/>
-## Common API Request Details
+- [Proxy Request Header Modifications] (Common API Details.md#proxy-req-header-mod-id) </br>
+- [Client Request Headers] (Common API Details.md#client-req-header-id) </br>
+- [Request Query Parameters] (Common API Details.md#req-query-param-id) </br>
+- [Case Insensitivity for Requests] (Common API Details.md#case-insensitivity-req-id) </br>
+- [Client Request Timeout] (Common API Details.md#client-req-timeout-id) </br>
+- [Request Throttling] (Common API Details.md#req-throttle-id) </br>
 
 <div id='proxy-req-header-mod-id'/>
-### Proxy Request Header Modifications
+## Proxy Request Header Modifications
 
 The resource provider proxy will preserve all the client requests headers, with the exception of modifications per the details below. The headers below are reserved and cannot be set by clients.
 
