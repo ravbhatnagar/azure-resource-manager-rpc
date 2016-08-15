@@ -38,11 +38,11 @@ The HTTP verb and request body will \*not\* be used in identifying the "action" 
 
 | Method | Request URI |
 | --- | --- |
-| POST | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/{actionName}?api-version={api-version} |
+| POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/{actionName}?api-version={api-version} |
 
 **Arguments**
 
-[Description here] (https://github.com/ravbhatnagar/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
+[Description here] (Resource API Reference.md#crud-arguments-id).
 
 Examples of action names include: "restartVM" or "listStorageKeys".
 
@@ -87,19 +87,21 @@ Examples include: available platform images for a subscription; available locati
 
 | Method | Request URI |
 | --- | --- |
-| GET/POST | https://{endpoint}/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{fully-qualified-resource-name}?api-version={api-version} |
+| GET/POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
 
 #### Request (Tenant wide operations)
 | Method | Request URI |
 | --- | --- |
-| GET/POST | https://{endpoint}/providers/{resourceProviderNamespace}/{fully-qualified-resource-name}?api-version={api-version} |
+| GET/POST | https://&lt;endpoint&gt;/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
 
 **Arguments**
 
 | Argument | Description |
 | --- | --- |
 | subscriptionId | The subscriptionId for the Azure user. |
-| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
+| api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[{-preview} or  {-alpha}or{-beta}or{-rc}or{-privatepreview}]. |
+| resourceProviderNamespace| The resource provider namespace can only be ASCII alphanumeric characters and the "." character. |
+| resourceType| The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks). The resource type can only be ASCII alphanumeric characters.|
 
 **Request Headers**
 
@@ -116,7 +118,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The resource provider should return 200 (OK) to indicate that the action completed successfully. 202 (Accepted) can be returned to indicate that the action will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+The resource provider should return 200 (OK) to indicate that the action completed successfully. 202 (Accepted) can be returned to indicate that the action will complete asynchronously.
 
 If the Provider does not exist, 404 (NotFound) should be returned.
 
@@ -214,14 +216,14 @@ Many resource providers have resource name uniqueness requirements – usually r
 
 | Method | Request URI |
 | --- | --- |
-| POST | https://<endpoint>/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/checkNameAvailability?api-version={api-version} |
+| POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/checkNameAvailability?api-version={api-version} |
 
 <div id='check-name-req-loc-id'/>
 #### Request (for local uniqueness)
 
 | Method | Request URI |
 | --- | --- |
-| POST | https://<endpoint>/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/locations/{location}/checkNameAvailability?api-version={api-version} |
+| POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/locations/{location}/checkNameAvailability?api-version={api-version} |
 
 
 **Arguments**
