@@ -83,12 +83,16 @@ Examples include: available platform images for a subscription; available locati
 **Please review all instances where this API is used with the current owners of the RP API document. Manageable entities should \*never\* be updated at this level.**
 
 <div id='sub-wide-req-id'/>
-#### Request
+#### Request (Subscription wide operations)
 
 | Method | Request URI |
 | --- | --- |
-| GET/POST | https://<endpoint>/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{rp-defined-uri}?api-version={api-version} |
-| GET/POST | https://<endpoint>/providers/{resourceProviderNamespace}/{rp-defined-uri}?api-version={api-version} |
+| GET/POST | https://{endpoint}/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{fully-qualified-resource-name}?api-version={api-version} |
+
+#### Request (Tenant wide operations)
+| Method | Request URI |
+| --- | --- |
+| GET/POST | https://{endpoint}/providers/{resourceProviderNamespace}/{fully-qualified-resource-name}?api-version={api-version} |
 
 **Arguments**
 
