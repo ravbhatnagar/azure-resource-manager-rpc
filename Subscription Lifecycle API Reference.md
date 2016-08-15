@@ -1,19 +1,19 @@
+<div id='sub-lifecyclye-ref-id'/>
 # Subscription Lifecycle API Reference
 
-## Contents
-1. [Subscription Lifecycle API Reference] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
-    a. [Updating a subscription] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
-	i) [Request] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
-	ii) [Response] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
-	iii) [Subscription States] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#sub-lifecyclye-ref-id) <br/>
-<div id='sub-lifecyclye-ref-id'/>
+- [Creating or Updating a subscription] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-create-id) <br/>
+  - [Request] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-req-id) <br/>
+  - [Response] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-res-id) <br/>
+  - [Subscription States] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-states-id) <br/>
 
+<div id='sub-lifecyclye-ref-create-id'/>
 ## Creating or Updating a Subscription
 
 Creates or updates a subscription for this particular resource provider. It includes changes in the state of the subscription which may trigger other actions (setup or teardown).
 
 This API uses the &quot;system&quot; version of 2.0 because it can be triggered by commerce and not necessarily by a user request.
 
+<div id='sub-lifecyclye-ref-req-id'/>
 ### Request
 
 | Method | Request URI |
@@ -51,6 +51,7 @@ This API uses the &quot;system&quot; version of 2.0 because it can be triggered 
 | **properties.quotaId** | Optional.The quota requirement for the subscription based on the offer type / category (e.g. free vs. pay-as-you-go). This can be used to inform quota information for the subscription (e.g. max # of resource groups or max # of virtual machines. |
 | **Properties.registeredFeatures** | Optional.All AFEC features that the subscriptions has been registered under RP namespace and platform namespace (Microsoft.Resources) |
 
+<div id='sub-lifecyclye-ref-res-id'/>
 ### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -71,6 +72,7 @@ Headers common to all responses.
 
 If a 200, the response body will contain the original request that was PUT per the Azure REST guidelines.
 
+<div id='sub-lifecyclye-ref-states-id'/>
 ### Subscription States
 
 | SubscriptionState | Description |
