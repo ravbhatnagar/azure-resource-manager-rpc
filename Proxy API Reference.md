@@ -61,7 +61,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The resource provider should return 200 (OK) to indicate that the action completed successfully. 202 (Accepted) can be returned to indicate that the action will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+The resource provider should return 200 (OK) to indicate that the action completed successfully. 202 (Accepted) can be returned to indicate that the action will complete asynchronously.
 
 If the resource group or a relevant resource does not exist, 404 (NotFound) should be returned.
 
