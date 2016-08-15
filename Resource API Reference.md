@@ -3,20 +3,20 @@
 - [Resource API Reference] (Resource API Reference.md#resource-ref-id) <br/>
 - [Arguments for CRUD on Resource] (Resource API Reference.md#crud-arguments-id) <br/>
   - [Put Resource] (Resource API Reference.md#put-resource-id) <br/>
-    - [Request] (Resource API Reference.md#put-resource-id) <br/>
-    - [Response] (Resource API Reference.md#put-resource-id) <br/>
-    b. [Patch Resource] (Resource API Reference.md#patch-resource-id) <br/>
-		i) [Request] (Resource API Reference.md#patch-resource-id) <br/>
-		ii) [Response] (Resource API Reference.md#patch-resource-id) <br/>
-    c. [Delete Resource] (Resource API Reference.md#delete-resource-id) <br/>
-		i) [Request] (Resource API Reference.md#delete-resource-id) <br/>
-		ii) [Response] (Resource API Reference.md#delete-resource-id) <br/>
-    d. [Get Resource] (Resource API Reference.md#get-resource-id) <br/>
-		i) [Request] (Resource API Reference.md#get-resource-id) <br/>
-		ii) [Response] (Resource API Reference.md#get-resource-id) <br/>
-    e. [Move Resource] (Resource API Reference.md#move-resource-id) <br/>
-                i) [Request] (Resource API Reference.md#move-resource-id) <br/>
-		ii) [Response] (Resource API Reference.md#move-resource-id) <br/>
+    - [Request] (Resource API Reference.md#put-resource-req-id) <br/>
+    - [Response] (Resource API Reference.md#put-resource-res-id) <br/>
+  - [Patch Resource] (Resource API Reference.md#patch-resource-id) <br/>
+    - [Request] (Resource API Reference.md#patch-resource-req-id) <br/>
+    - [Response] (Resource API Reference.md#patch-resource-res-id) <br/>
+  - [Delete Resource] (Resource API Reference.md#delete-resource-id) <br/>
+    - [Request] (Resource API Reference.md#delete-resource-req-id) <br/>
+    - [Response] (Resource API Reference.md#delete-resource-res-id) <br/>
+  - [Get Resource] (Resource API Reference.md#get-resource-id) <br/>
+    - [Request] (Resource API Reference.md#get-resource-req-id) <br/>
+    - [Response] (Resource API Reference.md#get-resource-res-id) <br/>
+  - [Move Resource] (Resource API Reference.md#move-resource-id) <br/>
+    - [Request] (Resource API Reference.md#move-resource-req-id) <br/>
+    - [Response] (Resource API Reference.md#move-resource-res-id) <br/>
 
 <div id='resource-ref-id'/>
 ## Resource API Reference
@@ -42,6 +42,7 @@ Creates or updates a resource belonging to a resource group. Resource types can 
 
 ARM does not distinguish between creation and update. The resource provider should consult its datastore if a distinction is necessary. However, a PUT should always be allowed to overwrite an existing resource.
 
+<div id='put-resource-req-id'/>
 #### Request
 
 | Method | Request URI |
@@ -81,6 +82,7 @@ The resource group name and resource name **MUST** come from the URL and not the
     }
       "kind" : "resource kind"
     }
+    
 | **Field** | Description |
 | --- | --- |
 | **location** | Required, string. The location of the resource.  This would be one amongst the supported Azure Geo Regions registered by the RP:West US | East US | North Central US | South Central US | West Europe | North Europe | East Asia | Southeast Asia | East US 2 | etc.  Resource Providers should ignore whitespace and capitalization when accepting geo regions. That is, &quot;West US,&quot; &quot;westus&quot; and &quot;West us&quot; should all be acceptable for the georegion. This will greatly simplify the pattern for CLI / Powershell / SDK clients. An RP should use this to create the resource in the appropriate geo-affinity region.  The geo region of a resource never changes after it is created. |
@@ -146,6 +148,7 @@ The settings can range from simple key-value pairs to complex nested structures.
 
 **NOTE** For proxy only resources, location and tags are not applicable in the request body.
 
+<div id='put-resource-res-id'/>
 #### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -177,6 +180,7 @@ The response body should contain _at least_ the original request that was PUT (a
 
 Updates a resource belonging to a resource group. ARM requires RPs to support PATCH for updating tags for a resource.
 
+<div id='patch-resource-req-id'/>
 #### Request
 
 | Method | Request URI |
@@ -197,6 +201,7 @@ An example of a common pattern is to PATCH an update to the Tags section of a re
 
 The behavior for patching of the fields inside the properties envelope is left to the resource provider, although it should follow the Azure REST guidelines.
 
+<div id='patch-resource-res-id'/>
 #### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -235,6 +240,7 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
 
 Deletes a resource from the resource group.
 
+<div id='delete-resource-req-id'/>
 #### Request
 
 | Method | Request URI |
@@ -253,6 +259,7 @@ Only headers common to all requests.
 
 Empty
 
+<div id='delete-resource-res-id'/>
 #### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -278,6 +285,7 @@ Empty
 
 Returns a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section). Below are the three different request URIs to get resource or resource collection under a resource group or subscription. 
 
+<div id='get-resource-req-id'/>
 #### Request - Get a specific resource under resource group
 
 | Method | Request URI |
@@ -316,6 +324,7 @@ Only headers common to all requests.
 
 Empty
 
+<div id='get-resource-res-id'/>
 #### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -407,6 +416,7 @@ The resource provider may choose to enforce its own set of restrictions – for 
 
 As some examples: (1) the website RP may require that all websites belonging to the same server farm move across resource groups together (along with the server farm); (2) the compute RP may require that all virtual machines belonging to the same availability set move across resource groups together (along with the availability set).
 
+<div id='move-resource-req-id'/>
 #### Request
 
 | Method | Request URI |
@@ -437,6 +447,7 @@ See common client request headers.
 | targetResourceGroup | **Required** , string.The target resource group id to move the resources to.  The target resource group cannot be the same as the current (source) resource group. If the subscriptionId is different than the current resource group&#39;s subscriptionId, then additional checks will be performed in the frontdoor. |
 | resources | **Required** , array of resource ids.The collection of resources to move to the target resource group.  The resources must be from the current resource group from the request URL. At most 250 resources can be moved with a single request. The resources can span several different resource providers and resource types. |
 
+<div id='move-resource-res-id'/>
 #### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
