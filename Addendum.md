@@ -83,6 +83,7 @@ The RPC supports registering "nested" resource types for an RP with this format:
 The resource provider URIs are still expected to follow REST guidelines (e.g.: azure.com/subscriptions/{SubId}/resourceGroup/ {resourceGroup\_name}/providers/{namespace}/{type1}/{type1\_name}/{type2}/{type2\_name}
 
 Please see example URLs for nested resource types below:
+
 | Http Method | URI |
 | --- | --- |
 | PUT | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
