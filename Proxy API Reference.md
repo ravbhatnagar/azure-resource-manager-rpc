@@ -212,12 +212,12 @@ Many resource providers have resource name uniqueness requirements – usually r
 | --- | --- |
 | POST | https://<endpoint>/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/checkNameAvailability?api-version={api-version} |
 
-### Request (for local uniqueness)
+<div id='check-name-req-loc-id'/>
+#### Request (for local uniqueness)
 
 | Method | Request URI |
 | --- | --- |
 | POST | https://<endpoint>/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/locations/{location}/checkNameAvailability?api-version={api-version} |
-
 
 
 **Arguments**
