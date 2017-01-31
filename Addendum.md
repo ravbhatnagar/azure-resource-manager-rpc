@@ -16,6 +16,7 @@
 - [Designing Resources] (Addendum.md#design-id) <br/>
 - [Enumerating SKUs for exising Resources] (Addendum.md#enumerate-id) <br/>
 - [Enumerating SKUs for new Resources] (Addendum.md#enumerate-new-id) <br/>
+- [Correlating resources created on behalf of customers] (Addendum.md#correlate-resources-customer-id)
 
 <div id='instrumentation-id'/>
 ## Instrumentation and Tracing across services
@@ -429,4 +430,17 @@ For a detailed explanation of each field in the response body, please refer to t
 <div id='enumerate-new-id'/>
 ## Enumerating SKUs for a new resource
 
-For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.  The manifest schema used to express this data is available [here](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/arm-sku-api.docx?web=1) **.**
+For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.  The manifest schema used to express this data is available [here](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/arm-sku-api.docx?web=1)
+
+<div id='correlate-resources-customer-id'/> 
+##Correlating resources created on behalf of customer
+It is required that Resource Providers (RP) tag theresources when making service-to-service (S2S) calls using their internalsubscription. When a customer call to provision a resource comes to a RP andthat RP needs to call another RP using an internal subscription to complete therequest, it must tag the resource(s) with the customer’s original fullyqualified resourceId. This tag will not be visible to the customers as it willreside in the internal subscription only. This is applicable for both PUT andPATCH.
+
+The tag should have the following format –
+Tag Key – resourceCreatedFor
+TagValue – {fullyqualified resourceId of the resourcerequested by the customer. Ex-/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourcename}}
+
+Example – When a customer requests an HDInsight cluster with
+7 workers, HDI RP will call CRP to provision 7 VMs. It is now required that HDI
+RP will add the tags to the request for creating the 7 VMs.
+
