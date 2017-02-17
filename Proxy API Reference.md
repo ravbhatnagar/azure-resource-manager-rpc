@@ -239,8 +239,8 @@ Many resource providers have resource name uniqueness requirements – usually r
 **Request Body**
 
     {
-    "name": "<resourceNameToVerify>",
-    "type": "<resourceTypeUsedForVerification>"
+    "name": "{resourceNameToVerify}",
+    "type": "{fully qualified resource type which includes provider namespace}"
     }
 
 <div id='check-name-res-id'/>
