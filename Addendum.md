@@ -87,11 +87,11 @@ Please see example URLs for nested resource types below:
 
 | Http Method | URI |
 | --- | --- |
-| PUT | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}?api-version={api-version} |
-| PATCH | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
-| DELETE | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| PUT | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}?api-version={api-version} |
+| PATCH | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
+| DELETE | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 
 <div id='group-id'/>
 ## Resource Group Deletes
@@ -190,20 +190,20 @@ The asynchronous operation APIs frequently use the 202 Accepted status code and 
 
 The Uri for the Location header can be either underneath the original request:
 
-https://<endpoint>/subscriptions/{subscriptionId}/{Original-URL-Fo-Request}/operationresults/{operationId}&amp;api-version={api-version}
+https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/{Original-URL-Fo-Request}/operationresults/{operationId}&amp;api-version={api-version}
 
 or underneath a subscription level operations URL:
 
-https://<endpoint>/subscriptions/{subscriptionId}/ providers/{namespace}/locations/westus/operationresults/{operationId}&amp;api-version={api-version}
+https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{namespace}/locations/westus/operationresults/{operationId}&amp;api-version={api-version}
 
 The _endpoint_ can be determined by the hostname of the URI in the _referrer_ header.
 
-After this maximum time, clients will give up and treat the operation as timed out.
+After this maximum time, clients will give up and treat the operation as timed out. Please note that the location header needs to be the full absolute URI.
 
 | Clients | Resource Provider |
 | --- | --- |
 | DELETE /…/resourcegroups/rg1 |   |
-|   | 202 AcceptedLocation: /…/resourcegroups/rg1/operationresults/id1Retry-After: 60 |
+|   | 202 AcceptedLocation: /…/resourcegroups/rg1/operationresults/id1 Retry-After: 60 |
 | Waits 60 seconds |   |
 | GET /…/resourcegroups/rg1/ operationresults/id1  |   |
 |   | HTTP/1.1 202 AcceptedLocation: /…/resourcegroups/rg1/operationresults/id1 Retry-After: 10 |
@@ -342,7 +342,7 @@ In many cases, it is desirable for users to resize an existing resource.  Howeve
 
 | Method | Request URI |
 | --- | --- |
-| GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/skus?api-version={api-version} |
+| GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}/skus?api-version={api-version} |
 
 **Arguments**
 
