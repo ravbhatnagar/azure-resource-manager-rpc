@@ -420,7 +420,7 @@ For a detailed explanation of each field in the response body, please refer to t
 | resourceType | Required, string. The resource type that this object applies to. For example, for a database it'd be: Microsoft.SQL/servers/databases.   |
 | sku | Required, object. The exact set of keys that define this sku. This matches the fields on the respective resource. |
 | sku.name | Required, string. The name of the SKU. This is typically a letter + number code, such as A0 or P3 |
-| sku.tier | Required, stringThe tier of this particular SKU. Typically one of: <ul> <li>Free</li> <li>Basic</li> <li>Standard</li> <li>Premium</li></ul>|
+| sku.tier | Optional, string. The tier of this particular SKU. Typically one of: <ul> <li>Free</li> <li>Basic</li> <li>Standard</li> <li>Premium</li></ul>|
 | capacity | Optional, object. If the SKU supports scale out/in then the capacity object must be included. If scale out/in is not possible for the resource this may be omitted. |
 | capacity.scaleType | Required, enum. One of: <ul><li>None – meaning the capacity is not adjustable in any way (e.g. it is fixed)</li> <li>Manual – the user must manually scale out/in</li> <li>Automatic – the user is permitted to scale this SKU in and out</li></ul>|
 | capacity.minimum | Required if scaleType != none, integerThe lowest permitted capacity for this resource. Typically 0 or 1. |
@@ -430,7 +430,7 @@ For a detailed explanation of each field in the response body, please refer to t
 <div id='enumerate-new-id'/>
 ## Enumerating SKUs for a new resource
 
-For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.  The manifest schema used to express this data is available [here](http://sharepoint/sites/AzureUX/Sparta/Shared%20Documents/Specs/arm-sku-api.docx?web=1)
+For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.  The manifest schema used to express this data is available [here]
 
 <div id='correlate-resources-customer-id'/> 
 ##Correlating resources created on behalf of customer
