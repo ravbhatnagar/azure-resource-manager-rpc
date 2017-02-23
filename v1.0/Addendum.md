@@ -430,10 +430,10 @@ For a detailed explanation of each field in the response body, please refer to t
 <div id='enumerate-new-id'/>
 ## Enumerating SKUs for a new resource
 
-For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.  The manifest schema used to express this data is available [here]
+For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.
 
 <div id='correlate-resources-customer-id'/> 
-##Correlating resources created on behalf of customer
+## Correlating resources created on behalf of customer
 It is required that Resource Providers (RP) tag theresources when making service-to-service (S2S) calls using their internalsubscription. When a customer call to provision a resource comes to a RP andthat RP needs to call another RP using an internal subscription to complete therequest, it must tag the resource(s) with the customer’s original fullyqualified resourceId. This tag will not be visible to the customers as it willreside in the internal subscription only. This is applicable for both PUT andPATCH.
 
 The tag should have the following format –
