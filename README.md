@@ -8,11 +8,11 @@ The document is covered into five major sections. The first section covers the r
 The intended audience of this document is any service who wants to onboard to Azure as a resource provider. 
 
 ## Table of Contents
-1. [Common API Details] (Common API Details.md) <br/>
+1. [Common API Details] (v1.0/Common API Details.md) <br/>
 2. [Subscription Lifecycle API Reference] (Subscription Lifecycle API Reference.md) <br/>
 3. [Resource API Reference] (Resource API Reference.md)
 4. [Proxy API Reference] (Proxy API Reference.md)
-5. [Addendum] (Addendum.md)
+5. [Addendum] (v1.0/Addendum.md)
 
 ## Code of Conduct
 This project has adopted the [Microsoft Open Source Code of Conduct] (https://opensource.microsoft.com/codeofconduct/). For more information see the [Code of Conduct FAQ] (https://opensource.microsoft.com/codeofconduct/faq/) or contact opencode@microsoft.com with any additional questions or comments.
