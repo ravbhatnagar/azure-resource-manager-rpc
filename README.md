@@ -9,9 +9,9 @@ The intended audience of this document is any service who wants to onboard to Az
 
 ## Table of Contents
 1. [Common API Details] (v1.0/Common API Details.md) <br/>
-2. [Subscription Lifecycle API Reference] (Subscription Lifecycle API Reference.md) <br/>
-3. [Resource API Reference] (Resource API Reference.md)
-4. [Proxy API Reference] (Proxy API Reference.md)
+2. [Subscription Lifecycle API Reference] (v1.0/Subscription Lifecycle API Reference.md) <br/>
+3. [Resource API Reference] (v1.0/Resource API Reference.md)
+4. [Proxy API Reference] (v1.0/Proxy API Reference.md)
 5. [Addendum] (v1.0/Addendum.md)
 
 ## Code of Conduct
