@@ -312,7 +312,7 @@ This allows the resource provider to remain regional and still support this quer
 
 **Arguments**
 
-[Description here] (https://github.com/azure/azure-resource-manager-rpc/blob/master/Resource Provider API v2.0.md#crud-arguments-id).
+[Description here] (resource-api-reference.md#crud-arguments-id).
 
 **Request Headers**
 
@@ -473,7 +473,7 @@ ARM will perform some basic validation before forwarding the request to the reso
 
 If the request reaches the resource provider, it should return 200 (OK) to indicate that the operation completed successfully.
 
-202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](Addendum.md#async-id).
 
 If the resource group \*or\* resource does not exist, 404 (NotFound) should be returned. A 400 (BadRequest) can be used if the request does not satisfy the RP specific requirements.
 
