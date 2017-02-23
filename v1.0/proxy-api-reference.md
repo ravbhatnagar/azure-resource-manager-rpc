@@ -1,19 +1,19 @@
 # Proxy API Reference
 
-- [Proxy API Reference] (Proxy API Reference.md#proxy-ref-id) <br/>
-  - [Resource Action Requests] (Proxy API Reference.md#resource-action-id) <br/>
-    - [Request] (Proxy API Reference.md#resource-action-req-id) <br/>
-    - [Response] (Proxy API Reference.md#resource-action-res-id) <br/>
-  - [Subscription wide Reads and Actions i.e. GETs/POSTs] (Proxy API Reference.md#sub-wide-id) <br/>
-    - [Request] (Proxy API Reference.md#sub-wide-req-id) <br/>
-    - [Response] (Proxy API Reference.md#sub-wide-res-id) <br/>
-  - [Exposing Available Operations (for Client discovery)] (Proxy API Reference.md#available-ops-id) <br/>
-    - [Request] (Proxy API Reference.md#available-ops-req-id) <br/>
-    - [Response] (Proxy API Reference.md#available-ops-res-id) <br/>
-  - [Check Name Availability Requests] (Proxy API Reference.md#check-name-id) <br/>
-    - [Request (for Global Uniqueness)] (Proxy API Reference.md#check-name-req-id) <br/>
-    - [Request (for local uniqueness)] (Proxy API Reference.md#check-name-req-loc-id) <br/>
-    - [Response] (Proxy API Reference.md#check-name-res-id) <br/>
+- [Proxy API Reference] (proxy-api-reference.md#proxy-ref-id) <br/>
+  - [Resource Action Requests] (proxy-api-reference.md#resource-action-id) <br/>
+    - [Request] (proxy-api-reference.md#resource-action-req-id) <br/>
+    - [Response] (proxy-api-reference.md#resource-action-res-id) <br/>
+  - [Subscription wide Reads and Actions i.e. GETs/POSTs] (proxy-api-reference.md#sub-wide-id) <br/>
+    - [Request] (proxy-api-reference.md#sub-wide-req-id) <br/>
+    - [Response] (proxy-api-reference.md#sub-wide-res-id) <br/>
+  - [Exposing Available Operations (for Client discovery)] (proxy-api-reference.md#available-ops-id) <br/>
+    - [Request] (proxy-api-reference.md#available-ops-req-id) <br/>
+    - [Response] (proxy-api-reference.md#available-ops-res-id) <br/>
+  - [Check Name Availability Requests] (proxy-api-reference.md#check-name-id) <br/>
+    - [Request (for Global Uniqueness)] (proxy-api-reference.md#check-name-req-id) <br/>
+    - [Request (for local uniqueness)] (proxy-api-reference.md#check-name-req-loc-id) <br/>
+    - [Response] (proxy-api-reference.md#check-name-res-id) <br/>
 
 <div id='proxy-ref-id'/>
 ## Proxy API reference
@@ -42,7 +42,7 @@ The HTTP verb and request body will \*not\* be used in identifying the "action" 
 
 **Arguments**
 
-[Description here] (Resource API Reference.md#crud-arguments-id).
+[Description here] (resource-api-reference.md#crud-arguments-id).
 
 Examples of action names include: "restartVM" or "listStorageKeys".
 
