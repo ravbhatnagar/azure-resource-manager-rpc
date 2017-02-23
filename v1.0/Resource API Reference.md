@@ -33,7 +33,7 @@ These are the APIs that are implemented by the resource provider. Below is the d
 | resourceType | The type of the resource – the resource providers declare the resource types they support at the time of registering with Azure. The resourceType should follow the lowerCamelCase convention and be plural (e.g. virtualMachines, resourceGroups, jobCollections, virtualNetworks).  The resource type can only be ASCII alphanumeric characters. |
 | resourceName | The name of the resource. The name cannot include:   &#39;&lt;&#39;, &#39;&gt;&#39;, &#39;%&#39;, &#39;&amp;&#39;, &#39;:&#39;, &#39;\\&#39;, &#39;?&#39;, &#39;/&#39; OR any control characters. The max length is 260 characters. All other characters are allowed. The RP is expected to be more restrictive and have its own validation. |
 | actionName | The action that is being performed on the resource (or a container that is inside the resource). |
-| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD[<code>-preview &#124 -alpha</code> &#124-beta &#124-rc&#124-privatepreview]. |
+| api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD. It can be followed by a  -preview or -alpha or -beta or -rc or -privatepreview to indicate the appropriate milestone. |
 
 <div id='put-resource-id'/>
 ### Put Resource
