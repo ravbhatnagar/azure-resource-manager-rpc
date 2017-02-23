@@ -58,7 +58,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](addendum.md#async-id).
+The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](Addendum.md#async-id).
 
 The location header is not followed as part of the notification; instead, the notification will be retried with a delay. It is expected that subsequent updates that are a no-op will complete synchronously.
 
