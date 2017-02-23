@@ -1,10 +1,10 @@
 <div id='sub-lifecyclye-ref-id'/>
 # Subscription Lifecycle API Reference
 
-- [Creating or Updating a subscription] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-create-id) <br/>
-  - [Request] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-req-id) <br/>
-  - [Response] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-res-id) <br/>
-  - [Subscription States] (Subscription Lifecycle API Reference.md#sub-lifecyclye-ref-states-id) <br/>
+- [Creating or Updating a subscription] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-create-id) <br/>
+  - [Request] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-req-id) <br/>
+  - [Response] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-res-id) <br/>
+  - [Subscription States] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-states-id) <br/>
 
 <div id='sub-lifecyclye-ref-create-id'/>
 ## Creating or Updating a Subscription
@@ -58,7 +58,7 @@ The response includes an HTTP status code, a set of response headers, and a resp
 
 **Status Code**
 
-The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](http://sharepoint/sites/CIS/AzureRT/Shared%20Documents/Design%20Docs/Application%20Services/Resource%20Provider%20API%20v2.docx#_Asynchronous_operations).
+The resource provider should return 200 (OK) to indicate that the operation completed successfully. 202 (Accepted) can be returned to indicate that the operation will [complete asynchronously](addendum.md#async-id).
 
 The location header is not followed as part of the notification; instead, the notification will be retried with a delay. It is expected that subsequent updates that are a no-op will complete synchronously.
 
