@@ -1,12 +1,12 @@
 <div id='common-api-details-id'/>
 # Common API Details
 
-- [Proxy Request Header Modifications] (Common API Details.md#proxy-req-header-mod-id) </br>
-- [Client Request Headers] (Common API Details.md#client-req-header-id) </br>
-- [Request Query Parameters] (Common API Details.md#req-query-param-id) </br>
-- [Case Insensitivity for Requests] (Common API Details.md#case-insensitivity-req-id) </br>
-- [Client Request Timeout] (Common API Details.md#client-req-timeout-id) </br>
-- [Request Throttling] (Common API Details.md#req-throttle-id) </br>
+- [Proxy Request Header Modifications] (common-api-details.md#proxy-req-header-mod-id) </br>
+- [Client Request Headers] (common-api-details.md#client-req-header-id) </br>
+- [Request Query Parameters] (common-api-details.md#req-query-param-id) </br>
+- [Case Insensitivity for Requests] (common-api-details.md#case-insensitivity-req-id) </br>
+- [Client Request Timeout] (common-api-details.md#client-req-timeout-id) </br>
+- [Request Throttling] (common-api-details.md#req-throttle-id) </br>
 
 <div id='proxy-req-header-mod-id'/>
 ## Proxy Request Header Modifications
@@ -141,4 +141,4 @@ Chucked transfer encoding is supported and can be used for larger payloads.
 
 The Resource Provider may return a 307 response code to the customer if they want to expose a direct URL / host (with no proxy) to the user. As an example – when downloading a large file, the RP may return a 307 to a URL on storage to download that file.
 
-The frontdoor will \*not\* follow any redirects and will instead proxy them directly back to the client.
+The Azure Resource Manager will \*not\* follow any redirects and will instead proxy them directly back to the client.
