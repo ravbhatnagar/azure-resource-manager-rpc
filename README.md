@@ -8,10 +8,10 @@ The document is divided into five major sections. The first section covers the r
 The intended audience of this document is any service who wants to onboard to Azure as a resource provider. 
 
 ## Table of Contents
-1. [Common API Details] (v1.0/Common API Details.md) <br/>
-2. [Subscription Lifecycle API Reference] (v1.0/Subscription Lifecycle API Reference.md) <br/>
-3. [Resource API Reference] (v1.0/Resource API Reference.md)
-4. [Proxy API Reference] (v1.0/Proxy API Reference.md)
+1. [Common API Details] (v1.0/common-api-details.md) <br/>
+2. [Subscription Lifecycle API Reference] (v1.0/subscription-lifecycle-api-reference.md) <br/>
+3. [Resource API Reference] (v1.0/resource-api-reference.md)
+4. [Proxy API Reference] (v1.0/Proxy-api-reference.md)
 5. [Addendum] (v1.0/Addendum.md)
 
 ## Code of Conduct
