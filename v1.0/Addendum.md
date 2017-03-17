@@ -1,7 +1,8 @@
 # Addendum
+## Table of Contents ##
 
-- [Instrumentation and Tracing across services] (Addendum.md#instrumentation-id) <br/>
-- [ETags for Resources] (Addendum.md#etag-id) <br/>
+- [Instrumentation and Tracing across services] (#Instrumentation-and-Tracing-across-services) <br/>
+- [ETags for Resources] (#ETags-for-Resources) <br/>
 - [Regional Endpoints] (Addendum.md#regional-id) <br/>
 - [Nested Resources] (Addendum.md#nested-id) <br/>
 - [Resource Group Deletes] (Addendum.md#group-id) <br/>
@@ -18,8 +19,8 @@
 - [Enumerating SKUs for new Resources] (Addendum.md#enumerate-new-id) <br/>
 - [Correlating resources created on behalf of customers] (Addendum.md#correlate-resources-customer-id)
 
-<div id='instrumentation-id'/>
-## Instrumentation and Tracing across services
+
+## Instrumentation and Tracing across services ## 
 
 Resource providers should associate the correlation Id and client request Id with all of their management operations.
 
@@ -30,8 +31,7 @@ This will enable end-to-end troubleshooting from the portal, through CSM and to 
 3. x-ms-request-id: returned by the RP per request; typically maps to the RP's ActivityId
 4. x-ms-routing-id: maps to ARM's activity id (which is not otherwise exposed). This maps to implementation boundaries in ARM / the platform –RPs should not use this as their ActivityId.
 
-<div id='etag-id'/>
-## ETags for Resources
+## ETags for Resources ##
 
 ETags may be returned for individual resources, and then sent via If-Match / If-None-Match headers for concurrency control. The resource provider is responsible for storing and validating ETags – the frontdoor will never inspect these values.
 
