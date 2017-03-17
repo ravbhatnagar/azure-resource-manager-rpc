@@ -1,8 +1,8 @@
 # Addendum
 ## Table of Contents ##
 
-- [Instrumentation and Tracing across services](#Instrumentation-and-Tracing-across-services) <br/>
-- [ETags for Resources](#ETags-for-Resources) <br/>
+- [Instrumentation and Tracing across services](#instrumentation-and-tracing-across-services) <br/>
+- [ETags for Resources](#etags-for-resources) <br/>
 - [Regional Endpoints](Addendum.md#regional-id) <br/>
 - [Nested Resources](Addendum.md#nested-id) <br/>
 - [Resource Group Deletes](Addendum.md#group-id) <br/>
