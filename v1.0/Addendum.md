@@ -1,23 +1,23 @@
 # Addendum
 ## Table of Contents ##
 
-- [Instrumentation and Tracing across services] (#Instrumentation-and-Tracing-across-services) <br/>
-- [ETags for Resources] (#ETags-for-Resources) <br/>
-- [Regional Endpoints] (Addendum.md#regional-id) <br/>
-- [Nested Resources] (Addendum.md#nested-id) <br/>
-- [Resource Group Deletes] (Addendum.md#group-id) <br/>
-- [Asynchronous Operations] (Addendum.md#async-id) <br/>
-- [Creating or Updating Resources (PUT/PATCH)] (Addendum.md#create-update-id) <br/>
-- [DELETE Resource] (Addendum.md#delete-id) <br/>
-- [Call Action (POST {resourceUrl/action})] (Addendum.md#action-id) <br/>
-- [Provisioning State Property] (Addendum.md#provisioning-id) <br/>
-- [202 Accepted and Location Headers] (Addendum.md#location-id) <br/>
-- [Operation Resource Format (returned by Azure-AsyncOperation Header)] (Addendum.md#operation-id) <br/>
-- [Retrying REST calls] (Addendum.md#retry-id) <br/>
-- [Designing Resources] (Addendum.md#design-id) <br/>
-- [Enumerating SKUs for exising Resources] (Addendum.md#enumerate-id) <br/>
-- [Enumerating SKUs for new Resources] (Addendum.md#enumerate-new-id) <br/>
-- [Correlating resources created on behalf of customers] (Addendum.md#correlate-resources-customer-id)
+- [Instrumentation and Tracing across services](#Instrumentation-and-Tracing-across-services) <br/>
+- [ETags for Resources](#ETags-for-Resources) <br/>
+- [Regional Endpoints](Addendum.md#regional-id) <br/>
+- [Nested Resources](Addendum.md#nested-id) <br/>
+- [Resource Group Deletes](Addendum.md#group-id) <br/>
+- [Asynchronous Operations](Addendum.md#async-id) <br/>
+- [Creating or Updating Resources (PUT/PATCH)](Addendum.md#create-update-id) <br/>
+- [DELETE Resource](Addendum.md#delete-id) <br/>
+- [Call Action (POST {resourceUrl/action})](Addendum.md#action-id) <br/>
+- [Provisioning State Property](Addendum.md#provisioning-id) <br/>
+- [202 Accepted and Location Headers](Addendum.md#location-id) <br/>
+- [Operation Resource Format (returned by Azure-AsyncOperation Header)](Addendum.md#operation-id) <br/>
+- [Retrying REST calls](Addendum.md#retry-id) <br/>
+- [Designing Resources](Addendum.md#design-id) <br/>
+- [Enumerating SKUs for exising Resources](Addendum.md#enumerate-id) <br/>
+- [Enumerating SKUs for new Resources](Addendum.md#enumerate-new-id) <br/>
+- [Correlating resources created on behalf of customers](Addendum.md#correlate-resources-customer-id)
 
 
 ## Instrumentation and Tracing across services ## 
