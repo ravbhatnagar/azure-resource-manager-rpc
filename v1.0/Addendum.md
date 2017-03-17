@@ -3,8 +3,8 @@
 
 - [Instrumentation and Tracing across services](#instrumentation-and-tracing-across-services) <br/>
 - [ETags for Resources](#etags-for-resources) <br/>
-- [Regional Endpoints](Addendum.md#regional-id) <br/>
-- [Nested Resources](Addendum.md#nested-id) <br/>
+- [Regional Endpoints](#regional-endpoints) <br/>
+- [Nested Resources](nested-resources) <br/>
 - [Resource Group Deletes](Addendum.md#group-id) <br/>
 - [Asynchronous Operations](Addendum.md#async-id) <br/>
 - [Creating or Updating Resources (PUT/PATCH)](Addendum.md#create-update-id) <br/>
@@ -57,7 +57,6 @@ The behavior for ETags can be seen below:
 | If-Match = "\*" | 204*** No Content | 200 OK |
 | If-Match = "xyz" | 204*** No Content | 200 OK / 412 Precondition Failed |
 
-<div id='regional-id'/>
 ## Regional Endpoints ##
 
 The Resource Provider should partition services across multiple regions in order to allow for continued service if there is a regional outage. It is recommended that the RP offer services in all Azure supported regions so that users may collocate interdependent resources within a resource group.
@@ -74,7 +73,6 @@ In a concrete form:
 1. westus.cache.api.azure.com, eastus.cache.api.azure.com
 2. westus.redis.cache.api.azure.com
 
-<div id='nested-id'/>
 ## Nested Resources ##
 
 The RPC supports registering "nested" resource types for an RP with this format:
@@ -93,7 +91,6 @@ Please see example URLs for nested resource types below:
 | PATCH | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 | DELETE | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{namespace}/{resourceType}/{resourceName}/{nestedResourceType}/{nestedResourceName}?api-version={api-version} |
 
-<div id='group-id'/>
 ## Resource Group Deletes ##
 
 If the resource group containing resources is deleted, the RP will receive a DELETE call on each individual tracked resource in that group. In some cases, the resources will have interdependencies and therefore can only be deleted in a certain order that ARM does not understand.
@@ -102,12 +99,10 @@ To address this, ARM can simply ask each resource to delete in arbitrary order. 
 
 As a result, it is essential that the RPs follow proper REST guidelines when returning 2xx for a successful delete, and 4xx for a delete that is invalid (until a related resource is deleted first).
 
-<div id='async-id'/>
 ## Asynchronous Operations ##
 
 Some REST operations can take a long time to complete. Althgouth REST is not supposed to be stateful, some operations are made asynchronouse while waiting for the state machine to create the resources, and will reply before the operation on resources are completed. For such operations, the following guidance applies.
 
-<div id='create-update-id'/>
 ## Creating or Updating Resources (PUT/PATCH) ##
 
 The API flow should be to:
@@ -119,7 +114,6 @@ The API flow should be to:
 5. After the provisioning completes, the provisioningState field should transition to one of the terminal states (as described below).
 6. The provisioningState field should be returned on all future GETs, even after it is complete, until some other operation (e.g. a DELETE or UPDATE) causes it to transition to a non-terminal state.
 
-<div id='delete-id'/>
 ## Delete Resource (DELETE) ##
 
 The API flow should be to:
@@ -130,7 +124,6 @@ The API flow should be to:
 4. If a provisioningState field is used for the resource, it **MUST** transition to a non-terminal state like &quot;Deleting&quot;;
 5. If the DELETE completes successfully, the URL that was returned in the Location header **MUST** now return a 200 OK or 204 NoContent to indicate success and the resource **MUST** disappear.
 
-<div id='action-id'/>
 ## Call Action (POST {resourceUrl}/{action}) ##
 
 The API flow should be:
@@ -140,7 +133,6 @@ The API flow should be:
 3. **Optional:** The response headers may include an Azure-AsyncOperation header pointing to an Operation resource (as described below).
 4. If the POST completes successfully, the URL that was returned in the Location header **MUST** now return what would have been a successful response if the API completed (e.g. a response body / header / status code). It is acceptable for this to be a 200/204 NoContent if the action does not require a response (e.g. restarting a VM).
 
-<div id='provisioning-id'/>
 ## ProvisioningState property ##
 
 The provisioningState field has three terminal states: **Succeeded** , **Failed** and **Canceled**. If the resource returns no provisioningState, it is assumed to be **Succeeded**.
@@ -176,7 +168,6 @@ If the user does a PUT with provisioningState (e.g. after doing a GET), the reso
 
 If the user provides a provisioningState matching the value \*on the server\*, the server should ignore it. If the user provides a provisioningState that does \*not\* match the value on the server, the resource provider should reject the call as a 400 BadReqeust.
 
-<div id='location-id'/>
 ## 202 Accepted and Location Headers ##
 
 The asynchronous operation APIs frequently use the 202 Accepted status code and Location headers to indicate progress. The flow is described below:
@@ -211,7 +202,6 @@ After this maximum time, clients will give up and treat the operation as timed o
 | GET /…/resourcegroups/rg1/ operationresults/id1 |     |
 |   | 204 NOCONTENT |
 
-<div id='operation-id'/>
 ## Operation Resource format (returned by Azure-AsyncOperation header) ##
 
     {
@@ -255,7 +245,6 @@ If the response status code is a 4xx or 5xx value, it indicates a failure in rea
 | endTime | **Optional.**  DateLiteral using ISO8601, per 1API guidelines. |
 | percentComplete | **Optional.**  Double between 0 and 100. |
 
-<div id='retry-id'/>
 ## Retrying REST Calls ##
 
 The recommended pattern for REST clients is to retry calls that:
@@ -266,7 +255,6 @@ The recommended pattern for REST clients is to retry calls that:
 
 The retry interval, strategy (e.g. exponential/linear) and max timeout should be defined by the _server_ and not the client. That allows various server workloads to advertise different retry policies.
 
-<div id='design-id'/>
 ## Designing Resources ##
 
 The Azure Resource Provider contract and template language have special semantics around &quot;registered&quot; Azure resources – we call these **tracked resources**.
@@ -333,7 +321,6 @@ If these objects are addressable by URIs but not "registered", we call these **p
 | ​Can be independently included in external templates | ​Yes | ​Yes |
 | ​Can be versioned independently from parent     | ​Yes | ​Yes |
 
-<div id='enumerate-id'/>
 ## Enumerating SKUs for an existing resource ##
 
 In many cases, it is desirable for users to resize an existing resource.  However, only a certain subset of sizes available from a given resource provider may be applicable to a given resource – e.g. an A1 machine may be updatable to other A series VMs, but may not be convertible to D series.  This API exposes the valid SKUs for an existing resource.
@@ -427,7 +414,6 @@ For a detailed explanation of each field in the response body, please refer to t
 | capacity.maximum | Required if scaleType != none, integerThe highest permitted capacity for this resource. This may vary per SKU, or it may be the same. |
 | capacity.default | Required if scaleType != none, integerThe default capacity.  Generally, if the user omits setting the capacity, the RP would use this value. |
 
-<div id='enumerate-new-id'/>
 ## Enumerating SKUs for a new resource ##
 
 For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.
