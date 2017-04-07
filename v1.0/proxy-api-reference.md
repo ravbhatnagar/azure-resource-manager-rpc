@@ -4,16 +4,13 @@
   - [Resource Action Requests](#resource-action-requests) <br/>
     - [Request](#request) <br/>
     - [Response](#response) <br/>
-  - [Subscription wide Reads and Actions] (proxy-api-reference.md#sub-wide-id) <br/>
-    - [Request] (proxy-api-reference.md#sub-wide-req-id) <br/>
-    - [Response] (proxy-api-reference.md#sub-wide-res-id) <br/>
-  - [Exposing Available Operations (for Client discovery)] (proxy-api-reference.md#available-ops-id) <br/>
-    - [Request] (proxy-api-reference.md#available-ops-req-id) <br/>
-    - [Response] (proxy-api-reference.md#available-ops-res-id) <br/>
-  - [Check Name Availability Requests] (proxy-api-reference.md#check-name-id) <br/>
-    - [Request (for Global Uniqueness)] (proxy-api-reference.md#check-name-req-id) <br/>
-    - [Request (for local uniqueness)] (proxy-api-reference.md#check-name-req-loc-id) <br/>
-    - [Response] (proxy-api-reference.md#check-name-res-id) <br/>
+  - [Subscription wide Reads and Actions](#subscription-wide-reads-and-actions) <br/>
+    - [Request](#request) <br/>
+    - [Response](#response) <br/>
+  - [Exposing Available Operations](#exposing-available-operations) <br/>
+    - [Request](#request) <br/>
+    - [Response](#response) <br/>
+  - [Check Name Availability Requests](#check-name-availability-requests) <br/>
 
 ## Proxy API reference ##
 
@@ -125,7 +122,7 @@ Headers common to all responses.
 
 The response body will be specific to the resource provider and the URL, but it \*must\* adhere to the REST CEC guidelines and be JSON by default.
 
-### Exposing Available Operations (for client discovery) ###
+### Exposing Available Operations ###
 
 As part of the management experience, clients (e.g. portal / CLI / powershell) need an ability to discover the available operations for a particular resource provider. The set of operations should include both registered and non-registered types (e.g. Virtual Machines and Disks).
 
