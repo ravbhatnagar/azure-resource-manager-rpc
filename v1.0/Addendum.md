@@ -4,20 +4,20 @@
 - [Instrumentation and Tracing across services](#instrumentation-and-tracing-across-services) <br/>
 - [ETags for Resources](#etags-for-resources) <br/>
 - [Regional Endpoints](#regional-endpoints) <br/>
-- [Nested Resources](nested-resources) <br/>
-- [Resource Group Deletes](Addendum.md#group-id) <br/>
-- [Asynchronous Operations](Addendum.md#async-id) <br/>
-- [Creating or Updating Resources (PUT/PATCH)](Addendum.md#create-update-id) <br/>
-- [DELETE Resource](Addendum.md#delete-id) <br/>
-- [Call Action (POST {resourceUrl/action})](Addendum.md#action-id) <br/>
-- [Provisioning State Property](Addendum.md#provisioning-id) <br/>
-- [202 Accepted and Location Headers](Addendum.md#location-id) <br/>
-- [Operation Resource Format (returned by Azure-AsyncOperation Header)](Addendum.md#operation-id) <br/>
-- [Retrying REST calls](Addendum.md#retry-id) <br/>
-- [Designing Resources](Addendum.md#design-id) <br/>
-- [Enumerating SKUs for exising Resources](Addendum.md#enumerate-id) <br/>
-- [Enumerating SKUs for new Resources](Addendum.md#enumerate-new-id) <br/>
-- [Correlating resources created on behalf of customers](Addendum.md#correlate-resources-customer-id)
+- [Nested Resources](#nested-resources) <br/>
+- [Resource Group Deletes](#resource-group-deletes) <br/>
+- [Asynchronous Operations](#asynchronous-operations) <br/>
+- [Creating or Updating Resources (PUT/PATCH)](#creating-or-updating-resources-(put/patch)) <br/>
+- [DELETE Resource](#delete-resource) <br/>
+- [Call Action (POST {resourceUrl/action})](#call-action-(post-{resourceUrl/action})) <br/>
+- [Provisioning State Property](#provisioning-state-property) <br/>
+- [202 Accepted and Location Headers](#202-accepted-and-location-headers) <br/>
+- [Operation Resource Format (returned by Azure-AsyncOperation Header)](#operation-resource-format) <br/>
+- [Retrying REST calls](#retrying-rest-calls) <br/>
+- [Designing Resources](#designing-resources) <br/>
+- [Enumerating SKUs for exising Resources](#enumerating-skus-for-exising-resources) <br/>
+- [Enumerating SKUs for new Resources](#enumerating-skus-for-new-resources) <br/>
+- [Correlating resources created on behalf of customers](#correlating-resources-created-on-behalf-of-customers)
 
 
 ## Instrumentation and Tracing across services ## 
