@@ -381,7 +381,7 @@ Implementation details:
 - Server may return less records than requested with nextLink. Returning zero records with NextLink is an acceptable response.
 - Clients must fetch records until the nextLink is not returned back / null. Clients should never rely on number of returned records to determinate if pagination is completed.
 
-### Resource Move Reference ###
+### Move Resource ###
 
 Moves resources from the resource group to a target resource group. The target resource group **may** be in a different subscription.
 
