@@ -68,7 +68,6 @@ ARM provides subscription level throttling. More details on these limits can be 
 
 ## Common API Response Details ###
 
-<div id='res-headers-id'/>
 ### Response Headers ###
 
 All responses from resource providers should include the following headers:
