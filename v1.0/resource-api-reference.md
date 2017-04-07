@@ -3,20 +3,10 @@
 - [Resource API Reference](#resource-api-reference) <br/>
 - [Arguments for CRUD on Resource](#arguments-for-crud-on-resource) <br/>
   - [Put Resource](#put-resource) <br/>
-    - [Request](#put-resource-request) <br/>
-    - [Response](#put-resource-response) <br/>
-  - [Patch Resource] (resource-api-reference.md#patch-resource-id) <br/>
-    - [Request] (resource-api-reference.md#patch-resource-req-id) <br/>
-    - [Response] (resource-api-reference.md#patch-resource-res-id) <br/>
-  - [Delete Resource] (resource-api-reference.md#delete-resource-id) <br/>
-    - [Request] (resource-api-reference#delete-resource-req-id) <br/>
-    - [Response] (resource-api-reference.md#delete-resource-res-id) <br/>
-  - [Get Resource] (resource-api-reference.md#get-resource-id) <br/>
-    - [Request] (resource-api-reference.md#get-resource-req-id) <br/>
-    - [Response] (resource-api-reference.md#get-resource-res-id) <br/>
-  - [Move Resource] (resource-api-reference.md#move-resource-id) <br/>
-    - [Request] (resource-api-reference.md#move-resource-req-id) <br/>
-    - [Response] (resource-api-reference.md#move-resource-res-id) <br/>
+  - [Patch Resource](#patch-resource) <br/>
+  - [Delete Resource](#delete-resource) <br/>
+  - [Get Resource](#get-resource) <br/>
+  - [Move Resource](#move-resource) <br/>
 
 ## Resource API Reference ##
 
