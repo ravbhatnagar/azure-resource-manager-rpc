@@ -1,5 +1,5 @@
 # Subscription Lifecycle API Reference
-- [Creating or Updating a subscription](#Creating or Updating a subscription) <br/>
+- [Creating or Updating a subscription](#creating-or-updating-a-subscription) <br/>
   - [Request](#request) <br/>
   - [Response](#response) <br/>
   - [Subscription States](#subscription-states) <br/>
