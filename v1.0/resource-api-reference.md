@@ -2,11 +2,11 @@
 
 - [Resource API Reference](#resource-api-reference) <br/>
 - [Arguments for CRUD on Resource](#arguments-for-crud-on-resource) <br/>
-  - [Put Resource](#put-resource) <br/>
-  - [Patch Resource](#patch-resource) <br/>
-  - [Delete Resource](#delete-resource) <br/>
-  - [Get Resource](#get-resource) <br/>
-  - [Move Resource](#move-resource) <br/>
+- [Put Resource](#put-resource) <br/>
+- [Patch Resource](#patch-resource) <br/>
+- [Delete Resource](#delete-resource) <br/>
+- [Get Resource](#get-resource) <br/>
+- [Move Resource](#move-resource) <br/>
 
 ## Resource API Reference ##
 
@@ -37,7 +37,7 @@ ARM does not distinguish between creation and update. The resource provider shou
 
 **Arguments**
 
-[Description here] (resource-api-reference.md#crud-arguments-id).
+[Description here](#arguments-for-crud-on-resource).
 
 The resource group names and resource names should be matched case insensitively. That means, for example, if a user creates a resource in resource group &quot;rG1&quot;, and then calls a read operation on &quot;RG1&quot;, the same resource should be returned even though the casing differs.
 
@@ -172,7 +172,7 @@ Updates a resource belonging to a resource group. ARM requires RPs to support PA
 
 **Arguments**
 
-[Description here] (resource-api-reference.md#crud-arguments-id).
+[Description here](#arguments-for-crud-on-resource).
 
 **Request Body**
 
@@ -227,7 +227,7 @@ Deletes a resource from the resource group.
 
 **Arguments**
 
-[Description here] (resource-api-reference.md#crud-arguments-id).
+[Description here](#arguments-for-crud-on-resource).
 
 **Request Headers**
 
@@ -289,7 +289,7 @@ This allows the resource provider to remain regional and still support this quer
 
 **Arguments**
 
-[Description here] (resource-api-reference.md#crud-arguments-id).
+[Description here](#arguments-for-crud-on-resource).
 
 **Request Headers**
 
