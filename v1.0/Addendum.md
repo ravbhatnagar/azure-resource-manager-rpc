@@ -7,12 +7,12 @@
 - [Nested Resources](#nested-resources) <br/>
 - [Resource Group Deletes](#resource-group-deletes) <br/>
 - [Asynchronous Operations](#asynchronous-operations) <br/>
-- [Creating or Updating Resources (PUT/PATCH)](#creating-or-updating-resources--put-patch-)
-- [Delete Resource (DELETE)](#delete-resource--delete-)
-- [Call Action (POST {resourceUrl}/{action})](#call-action--post--resourceurl---action--)
+- [Creating or Updating Resources](#creating-or-updating-resources)
+- [Delete Resource](#delete-resource)
+- [Call Action POST](#call-action-post)
 - [ProvisioningState property](#provisioningstate-property)
 - [202 Accepted and Location Headers](#202-accepted-and-location-headers)
-- [Operation Resource format (returned by Azure-AsyncOperation header)](#operation-resource-format--returned-by-azure-asyncoperation-header-)
+- [Operation Resource format](#operation-resource-format)
 - [Retrying REST Calls](#retrying-rest-calls)
 - [Designing Resources](#designing-resources)
 - [Enumerating SKUs for an existing resource](#enumerating-skus-for-an-existing-resource)
@@ -103,9 +103,9 @@ As a result, it is essential that the RPs follow proper REST guidelines when ret
 
 Some REST operations can take a long time to complete. Althgouth REST is not supposed to be stateful, some operations are made asynchronouse while waiting for the state machine to create the resources, and will reply before the operation on resources are completed. For such operations, the following guidance applies.
 
-## Creating or Updating Resources (PUT/PATCH) ##
+## Creating or Updating Resources ##
 
-The API flow should be to:
+The API flow for PUT/PATCH should be to:
 
 1. Respond to the initial PUT request with a 201 Created or 200 OK (per normal guidance);
 2. Since provisioning is not complete, the PUT response body **MUST** contain a provisioningState set to a non-terminal value (e.g. &quot;Accepted&quot;, or &quot;Created&quot;);
@@ -114,7 +114,7 @@ The API flow should be to:
 5. After the provisioning completes, the provisioningState field should transition to one of the terminal states (as described below).
 6. The provisioningState field should be returned on all future GETs, even after it is complete, until some other operation (e.g. a DELETE or UPDATE) causes it to transition to a non-terminal state.
 
-## Delete Resource (DELETE) ##
+## Delete Resource ##
 
 The API flow should be to:
 
@@ -124,9 +124,9 @@ The API flow should be to:
 4. If a provisioningState field is used for the resource, it **MUST** transition to a non-terminal state like &quot;Deleting&quot;;
 5. If the DELETE completes successfully, the URL that was returned in the Location header **MUST** now return a 200 OK or 204 NoContent to indicate success and the resource **MUST** disappear.
 
-## Call Action (POST {resourceUrl}/{action}) ##
+## Call Action POST ##
 
-The API flow should be:
+The API flow for POST {resourceUrl}/{action} should be:
 
 1. Respond to the initial POST request with a 202 Accepted;
 2. The response headers **MUST** include a Location header that points to a URL where the ongoing operation can be monitored;
@@ -202,7 +202,8 @@ After this maximum time, clients will give up and treat the operation as timed o
 | GET /…/resourcegroups/rg1/ operationresults/id1 |     |
 |   | 204 NOCONTENT |
 
-## Operation Resource format (returned by Azure-AsyncOperation header) ##
+## Operation Resource format ##
+The operation resource format returned by the Azure-AsyncOperation header is as follows-
 
     {
     "id": "/subscriptions/id/locations/westus/operationsStatus/sameguid",
@@ -418,7 +419,6 @@ For a detailed explanation of each field in the response body, please refer to t
 
 For new resources, SKUs are enumerated via ARM's metadata store.  This allows users to enumerate SKUs based on location, api-version, feature flags, and offerId filters.
 
-<div id='correlate-resources-customer-id'/> 
 ## Correlating resources created on behalf of customer ##
 It is required that Resource Providers (RP) tag theresources when making service-to-service (S2S) calls using their internalsubscription. When a customer call to provision a resource comes to a RP andthat RP needs to call another RP using an internal subscription to complete therequest, it must tag the resource(s) with the customer’s original fullyqualified resourceId. This tag will not be visible to the customers as it willreside in the internal subscription only. This is applicable for both PUT andPATCH.
 
