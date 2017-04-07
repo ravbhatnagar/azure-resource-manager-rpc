@@ -7,17 +7,17 @@
 - [Nested Resources](#nested-resources) <br/>
 - [Resource Group Deletes](#resource-group-deletes) <br/>
 - [Asynchronous Operations](#asynchronous-operations) <br/>
-- [Creating or Updating Resources (PUT/PATCH)](#creating-or-updating-resources-(put/patch)) <br/>
-- [DELETE Resource](#delete-resource) <br/>
-- [Call Action (POST {resourceUrl/action})](#call-action-(post-{resourceUrl/action})) <br/>
-- [Provisioning State Property](#provisioning-state-property) <br/>
-- [202 Accepted and Location Headers](#202-accepted-and-location-headers) <br/>
-- [Operation Resource Format (returned by Azure-AsyncOperation Header)](#operation-resource-format) <br/>
-- [Retrying REST calls](#retrying-rest-calls) <br/>
-- [Designing Resources](#designing-resources) <br/>
-- [Enumerating SKUs for exising Resources](#enumerating-skus-for-exising-resources) <br/>
-- [Enumerating SKUs for new Resources](#enumerating-skus-for-new-resources) <br/>
-- [Correlating resources created on behalf of customers](#correlating-resources-created-on-behalf-of-customers)
+- [Creating or Updating Resources (PUT/PATCH)](#creating-or-updating-resources--put-patch-)
+- [Delete Resource (DELETE)](#delete-resource--delete-)
+- [Call Action (POST {resourceUrl}/{action})](#call-action--post--resourceurl---action--)
+- [ProvisioningState property](#provisioningstate-property)
+- [202 Accepted and Location Headers](#202-accepted-and-location-headers)
+- [Operation Resource format (returned by Azure-AsyncOperation header)](#operation-resource-format--returned-by-azure-asyncoperation-header-)
+- [Retrying REST Calls](#retrying-rest-calls)
+- [Designing Resources](#designing-resources)
+- [Enumerating SKUs for an existing resource](#enumerating-skus-for-an-existing-resource)
+- [Enumerating SKUs for a new resource](#enumerating-skus-for-a-new-resource)
+- [Correlating resources created on behalf of customer](#correlating-resources-created-on-behalf-of-customer)
 
 
 ## Instrumentation and Tracing across services ## 
