@@ -1,4 +1,4 @@
-# Common API Details
+# Common API Details #
 - [Proxy Request Header Modifications] (#proxy-request-header-modifications) </br>
 - [Client Request Headers] (#client-request-headers) </br>
 - [Request Query Parameters] (#request-query-parameters) </br>
