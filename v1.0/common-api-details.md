@@ -1,13 +1,13 @@
-# Common API Details #
+# Common API Details 
 
 ## Table of Contents ##
-- [Proxy Request Header Modifications] (#proxy-request-header-modifications) </br>
-- [Client Request Headers] (#client-request-headers) </br>
-- [Request Query Parameters] (#request-query-parameters) </br>
-- [Case Insensitivity for Requests] (#case-insensitivity-for-requests) </br>
-- [Client Request Timeout] (#client-request-timeout) </br>
-- [Request Throttling] (#request-throttling) </br>
-- [Common API Response Details] (#common-api-response-details) </br>
+- [Proxy Request Header Modifications](#proxy-request-header-modifications) </br>
+- [Client Request Headers](#client-request-headers) </br>
+- [Request Query Parameters](#request-query-parameters) </br>
+- [Case Insensitivity for Requests](#case-insensitivity-for-requests) </br>
+- [Client Request Timeout](#client-request-timeout) </br>
+- [Request Throttling](#request-throttling) </br>
+- [Common API Response Details](#common-api-response-details) </br>
 
 ## Proxy Request Header Modifications ##
 
