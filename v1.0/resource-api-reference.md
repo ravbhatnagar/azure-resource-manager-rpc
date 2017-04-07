@@ -1,10 +1,10 @@
 # Resource API Reference
 
-- [Resource API Reference] (resource-api-reference.md#resource-ref-id) <br/>
-- [Arguments for CRUD on Resource] (resource-api-reference.md#crud-arguments-id) <br/>
-  - [Put Resource] (resource-api-reference.md#put-resource-id) <br/>
-    - [Request] (resource-api-reference.md#put-resource-req-id) <br/>
-    - [Response] (resource-api-reference.md#put-resource-res-id) <br/>
+- [Resource API Reference](#resource-api-reference) <br/>
+- [Arguments for CRUD on Resource](#arguments-for-crud-on-resource) <br/>
+  - [Put Resource](#put-resource) <br/>
+    - [Request](#put-resource-request) <br/>
+    - [Response](#put-resource-response) <br/>
   - [Patch Resource] (resource-api-reference.md#patch-resource-id) <br/>
     - [Request] (resource-api-reference.md#patch-resource-req-id) <br/>
     - [Response] (resource-api-reference.md#patch-resource-res-id) <br/>
@@ -18,13 +18,11 @@
     - [Request] (resource-api-reference.md#move-resource-req-id) <br/>
     - [Response] (resource-api-reference.md#move-resource-res-id) <br/>
 
-<div id='resource-ref-id'/>
-## Resource API Reference
+## Resource API Reference ##
 
 These are the APIs that are implemented by the resource provider. Below is the description of arguments that will be used in PUT, PATCH, DELETE and GET. 
 
-<div id='crud-arguments-id'/>
-###Arguments for CRUD on Resource
+### Arguments for CRUD on Resource ###
 | Argument | Description |
 | --- | --- |
 | subscriptionId | The subscriptionId for the Azure user. |
@@ -35,15 +33,13 @@ These are the APIs that are implemented by the resource provider. Below is the d
 | actionName | The action that is being performed on the resource (or a container that is inside the resource). |
 | api-version | Specifies the version of the protocol used to make this request.  Format must match YYYY-MM-DD. It can be followed by a  -preview or -alpha or -beta or -rc or -privatepreview to indicate the appropriate milestone. |
 
-<div id='put-resource-id'/>
-### Put Resource
+### Put Resource ###
 
 Creates or updates a resource belonging to a resource group. Resource types can be nested and, if so, must follow the Resource API guidelines.
 
 ARM does not distinguish between creation and update. The resource provider should consult its datastore if a distinction is necessary. However, a PUT should always be allowed to overwrite an existing resource.
 
-<div id='put-resource-req-id'/>
-#### Request
+#### Request ####
 
 | Method | Request URI |
 | --- | --- |
@@ -101,19 +97,19 @@ The resource group name and resource name **MUST** come from the URL and not the
 | **plan.promotionCode** | Optional, string. A publisher provided promotion code as provisioned in Data Market for the said product/artifact. |
 | **plan.version** | Optional, string. The version of the desired product/artifact.  Ignored by commerce. |
 
-##### Representing SKUs
+##### Representing SKUs ####
 
 The "sku" property should be used for defining the billing information of your resource (e.g. basic vs. standard). Any field that can have a billing impact for 1st party _services_ should be in the "sku" object. Note that 1st
 party _artifacts_ are addressed via the plan entity.
 
 The "sku" property is a complex type because it allows differentiation based on tiers (e.g. premium, free), families (e.g. generates of hardware) and other important details. The "sku" value should be **outside** the properties envelope.
 
-##### Purchasing 3rd Party Artifacts
+##### Purchasing 3rd Party Artifacts #####
 
 The Plan entity **MUST** be used for establishing the purchase context of any 3rd Party Artifact that is made available through the Azure Data Market. These artifacts can be 3rd Party Extension Resources like MySql Databases or an artifacts used in first party resources like images deployed in Azure Virtual Machines. Additionally, the plan entity can be used for procuring 1st
 party artifacts which incur usage/billing in addition to the cost of the service (e.g. VMs running SQL/BizTalk/etc).
 
-##### Resource Request Properties Envelope
+##### Resource Request Properties Envelope #####
 
 Every resource can have a section with properties. These are the settings that describe or configure the resource. For example, the configuration for a job collection can be seen below:
 
@@ -148,8 +144,7 @@ The settings can range from simple key-value pairs to complex nested structures.
 
 **NOTE** For proxy only resources, location and tags are not applicable in the request body.
 
-<div id='put-resource-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
@@ -175,13 +170,11 @@ Headers common to all responses.
 
 The response body should contain _at least_ the original request that was PUT (and any other properties that would be returned in a GET, such as provisioningState, name, Id and type).
 
-<div id='patch-resource-id'/>
-### Patch Resource
+### Patch Resource ###
 
 Updates a resource belonging to a resource group. ARM requires RPs to support PATCH for updating tags for a resource.
 
-<div id='patch-resource-req-id'/>
-#### Request
+#### Request ####
 
 | Method | Request URI |
 | --- | --- |
@@ -201,8 +194,7 @@ An example of a common pattern is to PATCH an update to the Tags section of a re
 
 The behavior for patching of the fields inside the properties envelope is left to the resource provider, although it should follow the Azure REST guidelines.
 
-<div id='patch-resource-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
@@ -220,7 +212,7 @@ Headers common to all responses.
 
 The response body will contain the updated resource (using the existing value + the request in the PATCH) per the Azure REST guidelines [here] (https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md).
 
-##### Representing SKUs
+##### Representing SKUs #####
 
 In addition, the PATCH operation must be supported for the SKU property to support scaling. For example, the following operation should update the SKU of the resource to be Free and not affect any of the other properties of the resource:
 
@@ -233,13 +225,11 @@ In addition, the PATCH operation must be supported for the SKU property to suppo
        }
     }
 
-<div id='delete-resource-id'/>
-### Delete Resource
+### Delete Resource ###
 
 Deletes a resource from the resource group.
 
-<div id='delete-resource-req-id'/>
-#### Request
+#### Request ####
 
 | Method | Request URI |
 | --- | --- |
@@ -257,8 +247,7 @@ Only headers common to all requests.
 
 Empty
 
-<div id='delete-resource-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
@@ -278,19 +267,17 @@ Only headers common to all responses.
 
 Empty
 
-<div id='get-resource-id'/>
-### Get Resource
+### Get Resource ###
 
 Returns a resource belonging to a resource group. Resource types can be nested and, if so, must follow the REST guidelines (full details in the nested resource type section). Below are the three different request URIs to get resource or resource collection under a resource group or subscription. 
 
-<div id='get-resource-req-id'/>
-#### Request - Get a specific resource under resource group
+#### Request - Get a specific resource under resource group ####
 
 | Method | Request URI |
 | --- | --- |
 | GET | https://<endpoint>/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
 
-#### Request - Get resource collection under resource group
+#### Request - Get resource collection under resource group ####
 
 Returns all the resources of a particular type belonging to a resource group. This is *not\* required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
 
@@ -298,7 +285,7 @@ Returns all the resources of a particular type belonging to a resource group. Th
 | --- | --- |
 | GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}?api-version={api-version} |
 
-#### Request - Get resource collection under subscription
+#### Request - Get resource collection under subscription ####
 
 Returns all the resources of a particular type belonging to a _subscription_. This is **\*not\*** required for nested resource types (e.g. the SQL Azure databases underneath a SQL Azure server).
 
@@ -322,8 +309,7 @@ Only headers common to all requests.
 
 Empty
 
-<div id='get-resource-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
@@ -405,8 +391,7 @@ Implementation details:
 - Server may return less records than requested with nextLink. Returning zero records with NextLink is an acceptable response.
 - Clients must fetch records until the nextLink is not returned back / null. Clients should never rely on number of returned records to determinate if pagination is completed.
 
-<div id='move-resource-id'/>
-### Resource Move Reference
+### Resource Move Reference ###
 
 Moves resources from the resource group to a target resource group. The target resource group **may** be in a different subscription.
 
@@ -414,8 +399,7 @@ The resource provider may choose to enforce its own set of restrictions – for 
 
 As some examples: (1) the website RP may require that all websites belonging to the same server farm move across resource groups together (along with the server farm); (2) the compute RP may require that all virtual machines belonging to the same availability set move across resource groups together (along with the availability set).
 
-<div id='move-resource-req-id'/>
-#### Request
+#### Request ####
 
 | Method | Request URI |
 | --- | --- |
@@ -445,8 +429,7 @@ See common client request headers.
 | targetResourceGroup | **Required** , string.The target resource group id to move the resources to.  The target resource group cannot be the same as the current (source) resource group. If the subscriptionId is different than the current resource group&#39;s subscriptionId, then additional checks will be performed in the frontdoor. |
 | resources | **Required** , array of resource ids.The collection of resources to move to the target resource group.  The resources must be from the current resource group from the request URL. At most 250 resources can be moved with a single request. The resources can span several different resource providers and resource types. |
 
-<div id='move-resource-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
