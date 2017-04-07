@@ -1,10 +1,10 @@
 # Proxy API Reference
 
-- [Proxy API Reference] (proxy-api-reference.md#proxy-ref-id) <br/>
-  - [Resource Action Requests] (proxy-api-reference.md#resource-action-id) <br/>
-    - [Request] (proxy-api-reference.md#resource-action-req-id) <br/>
-    - [Response] (proxy-api-reference.md#resource-action-res-id) <br/>
-  - [Subscription wide Reads and Actions i.e. GETs/POSTs] (proxy-api-reference.md#sub-wide-id) <br/>
+- [Proxy API Reference](#proxy-api-reference) <br/>
+  - [Resource Action Requests](#resource-action-requests) <br/>
+    - [Request](#request) <br/>
+    - [Response](#response) <br/>
+  - [Subscription wide Reads and Actions] (proxy-api-reference.md#sub-wide-id) <br/>
     - [Request] (proxy-api-reference.md#sub-wide-req-id) <br/>
     - [Response] (proxy-api-reference.md#sub-wide-res-id) <br/>
   - [Exposing Available Operations (for Client discovery)] (proxy-api-reference.md#available-ops-id) <br/>
@@ -15,15 +15,13 @@
     - [Request (for local uniqueness)] (proxy-api-reference.md#check-name-req-loc-id) <br/>
     - [Response] (proxy-api-reference.md#check-name-res-id) <br/>
 
-<div id='proxy-ref-id'/>
-## Proxy API reference
+## Proxy API reference ##
 
 ARM will proxy requests to backing resource providers even if they are not related directly to resource management or subscription lifecycle changes.
 
 These requests are considered to be part of the "Proxy API" and examples include: restart a VM; fetch storage account keys; or increase the capacity of a mobile service.
 
-<div id='resource-action-id'/>
-### Resource Action Requests
+### Resource Action Requests ###
 
 Actions can be performed on objects (e.g. reimage VM instance), but still need to be modeled in a consistent way across internal and external resource providers. Through this consistency, resource providers will be able to "light-up" authorization / RBAC scenarios without changing their API surface.
 
@@ -33,8 +31,7 @@ The HTTP verb and request body will \*not\* be used in identifying the "action" 
 
 **If no action name is provided, the HTTP Verb (e.g. GET / PUT) will be used as the action name.**
 
-<div id='resource-action-req-id'/>
-#### Request
+#### Request ###
 
 | Method | Request URI |
 | --- | --- |
@@ -54,8 +51,7 @@ Examples of action names include: "restartVM" or "listStorageKeys".
 
 All parameters for the action request should be contained in the request body – and not in the URL. This matches the OData and Azure REST guidelines and will avoid impacting the authZ checks.
 
-<div id='resource-action-res-id'/>
-#### Response
+#### Response ###
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
@@ -73,17 +69,15 @@ Headers common to all responses.
 
 The response body will be specific to the resource provider and the action, but it \*must\* adhere to the REST CEC guidelines and be JSON by default.
 
-<div id='sub-wide-id'/>
-### Subscription Wide Reads and Actions (i.e. GETs / POSTs)
+### Subscription Wide Reads and Actions ###
 
-Some data needs to be exposed in a read-only fashion across a subscription or tenant. The Resource Provider contract allows for this functionality but recommends caution when exposing it (since it requires a &quot;global&quot; endpoint for the RP &amp; does not support regional routing).
+This applies to GETs and POSTs where some data needs to be exposed in a read-only fashion across a subscription or tenant. The Resource Provider contract allows for this functionality but recommends caution when exposing it (since it requires a &quot;global&quot; endpoint for the RP &amp; does not support regional routing).
 
 Examples include: available platform images for a subscription; available locations for their offer type; quotas or restrictions imposed on their subscription.
 
 **Please review all instances where this API is used with the current owners of the RP API document. Manageable entities should \*never\* be updated at this level.**
 
-<div id='sub-wide-req-id'/>
-#### Request (Subscription wide operations)
+#### Request (Subscription wide operations) ####
 
 | Method | Request URI |
 | --- | --- |
@@ -91,7 +85,7 @@ Examples include: available platform images for a subscription; available locati
 | GET | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}?api-version={api-version} |
 | POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{actionName}?api-version={api-version} |
 
-#### Request (Tenant wide operations)
+#### Request (Tenant wide operations) ####
 | Method | Request URI |
 | --- | --- |
 | POST | https://&lt;endpoint&gt;/providers/{resourceProviderNamespace}/{actionName}?api-version={api-version} |
@@ -113,8 +107,7 @@ Only headers common to all requests.
 
 Controlled by the resource provider (e.g. GETs should have no body; POSTs can have a body as part of the action).
 
-<div id='sub-wide-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body if it applies.
 
@@ -132,15 +125,13 @@ Headers common to all responses.
 
 The response body will be specific to the resource provider and the URL, but it \*must\* adhere to the REST CEC guidelines and be JSON by default.
 
-<div id='available-ops-id'/>
-### Exposing Available Operations (for client discovery)
+### Exposing Available Operations (for client discovery) ###
 
 As part of the management experience, clients (e.g. portal / CLI / powershell) need an ability to discover the available operations for a particular resource provider. The set of operations should include both registered and non-registered types (e.g. Virtual Machines and Disks).
 
 This API is unique in that it is not scoped to a subscription – it is considered to be tenant-wide and should \*not\* vary based on particular subscriptions.
 
-<div id='available-ops-req-id'/>
-#### Request
+#### Request ####
 
 | Method | Request URI |
 | --- | --- |
@@ -152,8 +143,7 @@ This API is unique in that it is not scoped to a subscription – it is consider
 | --- | --- |
 | api-version | Specifies the version of the protocol used to make this request. Format must match YYYY-MM-DD[-preview|-alpha|-beta|-rc|-privatepreview]. |
 
-<div id='available-ops-res-id'/>
-#### Response
+#### Response ####
 
     {
     "value": [
@@ -196,7 +186,7 @@ This API is unique in that it is not scoped to a subscription – it is consider
 | origin | **Optional.** The intended executor of the operation; governs the display of the operation in the RBAC UX and the audit logs UX.<br/> Default value is "user,system"<br/> Details below |
 | properties | **Reserved for future use.  Optional.** |
 
-####Origin details
+#### Origin details ####
 
 <table>
 <th>origin</th>
@@ -208,20 +198,17 @@ This API is unique in that it is not scoped to a subscription – it is consider
 <tr><td>user, system</td><td>end user/service principal/ svc backend</td><td>Yes</td><td>Yes</td></tr>
 </table> 
 
-<div id='check-name-id'/>
-### Check Name Availability Requests
+### Check Name Availability Requests ###
 
 Many resource providers have resource name uniqueness requirements – usually requiring global or local uniqueness.  The following APIs provide a common pattern for verifying name availability.
 
-<div id='check-name-req-id'/>
-#### Request (for global uniqueness)
+#### Request (for global uniqueness) ####
 
 | Method | Request URI |
 | --- | --- |
 | POST | https://&lt;endpoint&gt;/subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/checkNameAvailability?api-version={api-version} |
 
-<div id='check-name-req-loc-id'/>
-#### Request (for local uniqueness)
+#### Request (for local uniqueness) ####
 
 | Method | Request URI |
 | --- | --- |
@@ -243,8 +230,7 @@ Many resource providers have resource name uniqueness requirements – usually r
     "type": "{fully qualified resource type which includes provider namespace}"
     }
 
-<div id='check-name-res-id'/>
-#### Response
+#### Response ####
 
 The response includes an HTTP status code, a set of response headers, and a response body.
 
