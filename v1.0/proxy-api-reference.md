@@ -2,14 +2,8 @@
 
 - [Proxy API Reference](#proxy-api-reference) <br/>
   - [Resource Action Requests](#resource-action-requests) <br/>
-    - [Request](#request) <br/>
-    - [Response](#response) <br/>
   - [Subscription wide Reads and Actions](#subscription-wide-reads-and-actions) <br/>
-    - [Request](#request) <br/>
-    - [Response](#response) <br/>
   - [Exposing Available Operations](#exposing-available-operations) <br/>
-    - [Request](#request) <br/>
-    - [Response](#response) <br/>
   - [Check Name Availability Requests](#check-name-availability-requests) <br/>
 
 ## Proxy API reference ##
