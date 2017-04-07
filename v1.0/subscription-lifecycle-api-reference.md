@@ -1,19 +1,15 @@
-<div id='sub-lifecyclye-ref-id'/>
 # Subscription Lifecycle API Reference
+- [Creating or Updating a subscription](#Creating or Updating a subscription) <br/>
+  - [Request](#request) <br/>
+  - [Response](#response) <br/>
+  - [Subscription States](#subscription-states) <br/>
 
-- [Creating or Updating a subscription] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-create-id) <br/>
-  - [Request] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-req-id) <br/>
-  - [Response] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-res-id) <br/>
-  - [Subscription States] (subscription-lifecycle-api-reference.md#sub-lifecyclye-ref-states-id) <br/>
-
-<div id='sub-lifecyclye-ref-create-id'/>
 ## Creating or Updating a Subscription
 
 Creates or updates a subscription for this particular resource provider. It includes changes in the state of the subscription which may trigger other actions (setup or teardown).
 
 This API uses the &quot;system&quot; version of 2.0 because it can be triggered by commerce and not necessarily by a user request.
 
-<div id='sub-lifecyclye-ref-req-id'/>
 ### Request
 
 | Method | Request URI |
@@ -51,7 +47,6 @@ This API uses the &quot;system&quot; version of 2.0 because it can be triggered 
 | **properties.quotaId** | Optional.The quota requirement for the subscription based on the offer type / category (e.g. free vs. pay-as-you-go). This can be used to inform quota information for the subscription (e.g. max # of resource groups or max # of virtual machines. |
 | **Properties.registeredFeatures** | Optional.All AFEC features that the subscriptions has been registered under RP namespace and platform namespace (Microsoft.Resources).  Null or an empty array would mean that there are no registered features in the subscription. |
 
-<div id='sub-lifecyclye-ref-res-id'/>
 ### Response
 
 The response includes an HTTP status code, a set of response headers, and a response body.
@@ -72,7 +67,6 @@ Headers common to all responses.
 
 If a 200, the response body will contain the original request that was PUT per the Azure REST guidelines.
 
-<div id='sub-lifecyclye-ref-states-id'/>
 ### Subscription States
 
 | SubscriptionState | Description |
